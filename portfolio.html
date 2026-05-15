@@ -1,0 +1,963 @@
+<!DOCTYPE html>
+<html lang="es" data-tema="claro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <meta name="description" content="Portfolio y recursos de formación de GasServicios. Guía de verbos en inglés.">
+    <title>GasServicios | Portfolio · Guía de Verbos</title>
+    <style>
+        /* ---------- VARIABLES CSS GLOBALES (GasServicios + Verbos) ---------- */
+        :root {
+            /* Variables GasServicios */
+            --fondo-cuerpo: #f8fafc;
+            --fondo-cabecera: #ffffff;
+            --fondo-pie: #0f172a;
+            --fondo-tarjeta: #ffffff;
+            --primario: #1e3a8a;
+            --primario-hover: #1e40af;
+            --acento: #f59e0b;
+            --texto-principal: #0f172a;
+            --texto-secundario: #334155;
+            --texto-inverso: #f8fafc;
+            --borde-suave: #e2e8f0;
+            --sombra-media: 0 10px 25px -5px rgba(29, 25, 25, 0.05), 0 8px 10px -6px rgba(0,0,0,0.02);
+            --radio-md: 1rem;
+            --radio-lg: 1.5rem;
+            --radio-full: 9999px;
+            --espaciado: clamp(1rem, 4vw, 2.5rem);
+            --ancho-maximo: 1280px;
+            --transicion: all 0.2s ease;
+            --footer-texto-principal: #f1f5f9;
+            --footer-texto-secundario: #cbd5e1;
+            --footer-enlace-hover: #fbbf24;
+            --footer-borde: #334155;
+
+            /* Variables específicas para los Acordeones de Verbos */
+            --color-acordeon-fondo: #f1f5f9;
+            --color-acordeon-hover: #e2e8f0;
+        }
+
+        [data-tema="oscuro"] {
+            /* Variables GasServicios */
+            --fondo-cuerpo: #0f172a;
+            --fondo-cabecera: #1e293b;
+            --fondo-pie: #020617;
+            --fondo-tarjeta: #1e293b;
+            --primario: #3b82f6;
+            --primario-hover: #60a5fa;
+            --acento: #fbbf24;
+            --texto-principal: #f1f5f9;
+            --texto-secundario: #cbd5e1;
+            --texto-inverso: #0f172a;
+            --borde-suave: #334155;
+            --footer-texto-principal: #f8fafc;
+            --footer-texto-secundario: #e2e8f0;
+            --footer-enlace-hover: #fcd34d;
+            --footer-borde: #475569;
+
+            /* Variables específicas para los Acordeones de Verbos */
+            --color-acordeon-fondo: #334155;
+            --color-acordeon-hover: #475569;
+        }
+
+        /* Reseteo y Base */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            background: var(--fondo-cuerpo);
+            color: var(--texto-principal);
+            font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+            line-height: 1.5;
+            overflow-x: hidden;
+            width: 100%;
+            transition: background var(--transicion), color var(--transicion);
+            -webkit-tap-highlight-color: transparent;
+        }
+        .contenedor-web { max-width: var(--ancho-maximo); margin: 0 auto; padding: 0 var(--espaciado); width: 100%; }
+        html { scroll-behavior: smooth; }
+
+        /* HEADER MODERNO GASSERVICIOS */
+        .cabecera { position: sticky; top: 0; z-index: 1000; background: var(--fondo-cabecera); border-bottom: 1px solid var(--borde-suave); transition: var(--transicion); }
+        .cabecera-interna { display: flex; align-items: center; justify-content: space-between; gap: 1.5rem; padding: 0.9rem 0; flex-wrap: wrap; }
+        .logo-enlace { display: flex; align-items: center; gap: 0.75rem; text-decoration: none; border-radius: var(--radio-md); padding: 0.25rem 0.5rem; transition: var(--transicion); }
+        .logo-icono { width: 48px; height: 48px; background: linear-gradient(135deg, var(--primario), #0f766e); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+        .logo-icono svg { width: 28px; height: 28px; fill: white; }
+        .texto-logo h1 { font-size: 1.6rem; font-weight: 700; color: var(--texto-principal); line-height: 1.2; }
+        .texto-logo p { font-size: 0.8rem; color: var(--texto-secundario); font-weight: 500; }
+        
+        /* NAVEGACIÓN ESCRITORIO */
+        .nav-escritorio { display: flex; align-items: center; }
+        .lista-nav { display: flex; gap: 0.25rem; list-style: none; background: var(--borde-suave); padding: 0.35rem; border-radius: 3rem; }
+        .enlace-nav { display: inline-block; padding: 0.6rem 1.25rem; font-weight: 600; font-size: 0.95rem; color: var(--texto-principal); text-decoration: none; border-radius: 2rem; transition: var(--transicion); }
+        .enlace-nav:hover, .enlace-nav.activo { background: var(--primario); color: white; }
+        .controles { display: flex; align-items: center; gap: 0.8rem; }
+        .boton-tema { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.5rem 1rem; background: transparent; border: 2px solid var(--borde-suave); border-radius: var(--radio-full); font-weight: 500; cursor: pointer; color: var(--texto-principal); transition: var(--transicion); }
+        .boton-tema svg { width: 1.2rem; height: 1.2rem; fill: currentColor; }
+        .boton-hamburguesa { display: none; flex-direction: column; gap: 6px; background: transparent; border: none; cursor: pointer; padding: 0.5rem; border-radius: 0.75rem; }
+        .linea-ham { width: 28px; height: 2.5px; background: var(--texto-principal); border-radius: 4px; transition: 0.2s; }
+        
+        /* MENÚ LATERAL MÓVIL */
+        .overlay-menu { position: fixed; inset: 0; background: rgba(0,0,0,0.5); backdrop-filter: blur(4px); z-index: 1040; visibility: hidden; opacity: 0; transition: 0.25s; }
+        .overlay-menu.visible { visibility: visible; opacity: 1; }
+        .menu-lateral { position: fixed; top: 0; right: -100%; width: min(85%, 320px); height: 100vh; background: var(--fondo-cabecera); z-index: 1050; padding: 5rem 1.5rem 2rem; display: flex; flex-direction: column; gap: 2rem; transition: right 0.3s cubic-bezier(0.2, 0.9, 0.4, 1.1); box-shadow: -5px 0 30px rgba(0,0,0,0.2); border-left: 1px solid var(--borde-suave); overflow-y: auto; }
+        .menu-lateral.abierto { right: 0; }
+        .lista-menu-lateral { list-style: none; display: flex; flex-direction: column; gap: 0.5rem; }
+        .enlace-menu-movil { display: flex; align-items: center; gap: 0.8rem; padding: 1rem 1.2rem; border-radius: var(--radio-md); font-weight: 600; text-decoration: none; color: var(--texto-principal); transition: 0.2s; }
+        .enlace-menu-movil.activo, .enlace-menu-movil:hover { background: var(--primario); color: white; }
+        .boton-cerrar { position: absolute; top: 1rem; right: 1rem; background: transparent; border: none; font-size: 1.8rem; cursor: pointer; color: var(--texto-principal); }
+
+        /* ========================================================= */
+        /* ESTILOS ESPECÍFICOS DEL MÓDULO DE VERBOS (Tu HTML)        */
+        /* ========================================================= */
+        main { padding: 2rem 0 4rem; }
+        .hero-portfolio { text-align: center; margin-bottom: 3rem; background: linear-gradient(135deg, var(--fondo-tarjeta) 0%, var(--fondo-cuerpo) 100%); padding: 3rem 2rem; border-radius: var(--radio-lg); border: 1px solid var(--borde-suave); }
+        .hero-portfolio h1 { color: var(--primario); font-size: 2.5rem; margin-bottom: 1rem; }
+        .hero-portfolio p { color: var(--texto-secundario); max-width: 700px; margin: 0 auto; font-size: 1.1rem; }
+
+        section { margin-top: 2rem; }
+        h2 { font-size: 1.75rem; color: var(--primario); margin-top: 1.5rem; margin-bottom: 1.5rem; text-align: center; border-bottom: 0.15rem solid var(--primario); padding-bottom: 0.5rem; }
+        
+        .contenedor-cuadricula { display: grid; gap: 1rem; grid-template-columns: 1fr; }
+        @media (min-width: 768px) { .contenedor-cuadricula { grid-template-columns: repeat(2, 1fr); gap: 1.5rem; } }
+        
+        article { background-color: var(--fondo-tarjeta); border-radius: var(--radio-md); padding: 1.5rem; box-shadow: var(--sombra-media); border: 1px solid var(--borde-suave); display: flex; flex-direction: column; transition: transform 0.2s ease, box-shadow 0.2s ease; }
+        article:active { transform: scale(0.99); }
+        article:nth-child(odd) { border-top: 0.3rem solid var(--primario); }
+        article:nth-child(even) { border-top: 0.3rem solid var(--acento); }
+        
+        h3 { font-size: 1.625rem; color: var(--primario); margin-bottom: 0.25rem; }
+        h4 { font-size: 1rem; margin: 0; color: var(--texto-principal); font-weight: 600; }
+        .traduccion-pronunciacion { font-size: 0.95rem; font-weight: 500; margin-bottom: 1.2rem; color: var(--texto-secundario); }
+        
+        /* Acordeones Nativos */
+        details { background-color: var(--color-acordeon-fondo); border-radius: 0.5rem; margin-bottom: 0.75rem; overflow: hidden; flex-grow: 1; transition: all 0.2s ease; }
+        summary { padding: 0.875rem 1rem; font-weight: 600; cursor: pointer; list-style: none; display: flex; justify-content: space-between; align-items: center; min-height: 48px; -webkit-tap-highlight-color: transparent; color: var(--texto-principal); }
+        summary::-webkit-details-marker { display: none; }
+        summary::after { content: '+'; font-size: 1.25rem; font-weight: 700; transition: transform 0.2s ease; }
+        details[open] summary::after { content: '-'; }
+        summary:active, summary:hover { background-color: var(--color-acordeon-hover); }
+        .contenido-acordeon { padding: 1rem; border-top: 1px solid var(--borde-suave); background-color: var(--fondo-tarjeta); }
+        
+        /* Acordeones de Resumen */
+        .acordeon-resumen { background-color: var(--color-acordeon-fondo); border-radius: 0.75rem; margin-bottom: 1rem; overflow: hidden; border: 1px solid var(--borde-suave); }
+        .acordeon-resumen summary { background-color: var(--primario); color: white; padding: 1rem; font-size: 1.125rem; }
+        .acordeon-resumen summary::after { color: white; }
+        .acordeon-resumen summary:hover { background-color: var(--primario-hover); }
+        
+        .lista-verbos-resumen { display: flex; flex-direction: column; gap: 0.75rem; }
+        .item-verbo-resumen { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; padding: 0.75rem; background-color: var(--fondo-tarjeta); border-radius: 0.5rem; border: 1px solid var(--borde-suave); gap: 0.5rem; }
+        .verbo-infinitivo { font-weight: 700; color: var(--primario); font-size: 1rem; min-width: 80px; }
+        .verbo-conjugaciones { display: flex; flex-wrap: wrap; gap: 0.5rem; flex: 1; justify-content: flex-end; }
+        .conjugacion-item { display: flex; flex-direction: column; background-color: var(--color-acordeon-fondo); padding: 0.4rem 0.6rem; border-radius: 0.375rem; font-size: 0.8rem; }
+        .conjugacion-tiempo { font-size: 0.7rem; color: var(--texto-secundario); text-transform: uppercase; margin-bottom: 0.2rem; }
+        .conjugacion-valor { font-weight: 600; font-family: 'Courier New', monospace; color: var(--texto-principal); }
+        .verbo-traduccion { font-size: 0.85rem; color: var(--texto-secundario); font-style: italic; }
+        
+        @media (max-width: 480px) {
+            .item-verbo-resumen { flex-direction: column; align-items: stretch; }
+            .verbo-conjugaciones { justify-content: flex-start; margin-top: 0.5rem; }
+            .conjugacion-item { flex: 1; text-align: center; }
+        }
+        
+        .conjugacion-destacada { font-weight: 700; color: var(--primario); margin-bottom: 0.75rem; display: block; font-size: 1.05rem; font-family: 'Courier New', monospace; }
+        .lista-ejemplos { list-style: none; }
+        .lista-ejemplos li { margin-bottom: 1rem; font-size: 0.95rem; padding-left: 0.75rem; border-left: 3px solid var(--borde-suave); }
+        .etiqueta-forma { font-weight: 700; color: var(--texto-secundario); font-size: 0.75rem; text-transform: uppercase; display: inline-block; margin-bottom: 0.35rem; background-color: var(--color-acordeon-fondo); padding: 0.2rem 0.5rem; border-radius: 0.25rem; }
+        .texto-frase { margin-bottom: 0.25rem; display: block; font-size: 0.95rem; line-height: 1.4; color: var(--texto-principal); }
+        .texto-traduccion { font-style: italic; font-size: 0.85rem; display: block; color: var(--texto-secundario); }
+
+        /* FOOTER */
+        .pie-pagina { background: var(--fondo-pie); color: var(--footer-texto-principal); margin-top: 3rem; padding: 2.5rem 0 1.5rem; border-top: 3px solid var(--acento); }
+        .footer-grid { display: grid; gap: 2rem 1.5rem; grid-template-columns: 1fr; }
+        @media (min-width: 48rem) { .footer-grid { grid-template-columns: repeat(2, 1fr); } }
+        @media (min-width: 80rem) { .footer-grid { grid-template-columns: repeat(6, 1fr); } }
+        .bloque-footer h4 { font-size: 1.1rem; font-weight: 700; margin-bottom: 1rem; color: var(--footer-texto-principal); position: relative; display: inline-block; }
+        .bloque-footer h4::after { content: ''; position: absolute; bottom: -6px; left: 0; width: 35px; height: 2px; background: var(--acento); border-radius: 2px; }
+        .bloque-footer a { display: block; color: var(--footer-texto-secundario); text-decoration: none; margin-bottom: 0.5rem; font-size: 0.85rem; transition: color 0.2s, transform 0.2s; }
+        .bloque-footer a:hover { color: var(--footer-enlace-hover); transform: translateX(3px); }
+        .contacto-item { display: flex; align-items: center; gap: 0.6rem; margin-bottom: 0.7rem; color: var(--footer-texto-secundario); font-size: 0.85rem; }
+        .contacto-item svg { width: 1rem; height: 1rem; fill: var(--acento); }
+        .social-icons { display: flex; gap: 0.7rem; margin-top: 0.8rem; }
+        .social-icons a { display: flex; align-items: center; justify-content: center; width: 2.2rem; height: 2.2rem; background: rgba(255,255,255,0.12); border-radius: 50%; font-size: 1rem; transition: all 0.2s; }
+        .social-icons a:hover { background: var(--acento); transform: translateY(-3px); color: #0f172a; }
+        .seccion-newsletter { margin-top: 2.5rem; padding-top: 2rem; border-top: 1px solid var(--footer-borde); text-align: center; }
+        .contenedor-newsletter { max-width: 600px; margin: 0 auto; padding: 0 var(--espaciado); }
+        .titulo-newsletter { font-size: 1.3rem; font-weight: 700; color: var(--footer-texto-principal); margin-bottom: 0.5rem; }
+        .descripcion-newsletter { color: var(--footer-texto-secundario); font-size: 0.9rem; margin-bottom: 1.2rem; }
+        .formulario-newsletter { display: flex; flex-direction: column; gap: 0.8rem; max-width: 450px; margin: 0 auto; }
+        @media (min-width: 40rem) { .formulario-newsletter { flex-direction: row; } }
+        .formulario-newsletter input { flex: 1; padding: 0.75rem 1.2rem; border-radius: var(--radio-full); border: 2px solid var(--footer-borde); background: var(--fondo-cabecera); color: var(--texto-principal); font-size: 0.95rem; }
+        .formulario-newsletter button { background: var(--acento); border: none; padding: 0.75rem 1.8rem; border-radius: var(--radio-full); font-weight: 700; cursor: pointer; color: #0f172a; transition: 0.2s; }
+        .copyright { text-align: center; border-top: 1px solid var(--footer-borde); padding-top: 1.5rem; font-size: 0.8rem; color: var(--footer-texto-secundario); margin-top: 2rem; }
+        .solo-lectura { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; }
+
+        /* RESPONSIVE CABECERA */
+        @media (max-width: 880px) {
+            .nav-escritorio { display: none; }
+            .boton-hamburguesa { display: flex; }
+        }
+    </style>
+
+    <link rel="stylesheet" href="./css/estilos4.css">
+
+
+  
+</head>
+<body>
+    <div class="contenedor-web">
+        <header class="cabecera">
+            <div class="cabecera-interna">
+                <a href="index.html" class="logo-enlace" id="logo-principal">
+                    <div class="logo-icono" aria-hidden="true">
+                        <svg viewBox="0 0 24 24"><path d="M12 2C8.5 2 6 4.5 6 8c0 2.5 1.5 4.5 3 6.5 1 1.5 2 3 2 5.5 0-2.5 1-4 2-5.5 1.5-2 3-4 3-6.5 0-3.5-2.5-6-6-6z"/><circle cx="12" cy="8" r="2"/></svg>
+                    </div>
+                    <div class="texto-logo"><h1>GasServicios</h1><p>energía segura · 24h</p></div>
+                </a>
+                
+                <div class="nav-escritorio">
+                    <ul class="lista-nav">
+                        <li><a href="index.html" class="enlace-nav">Inicio</a></li>
+                        <li><a href="nosotros.html" class="enlace-nav">Nosotros</a></li>
+                        <li><a href="servicios.html" class="enlace-nav">Servicios</a></li>
+                        <li><a href="portfolio.html" class="enlace-nav activo">Portfolio</a></li>
+                        <li><a href="blog.html" class="enlace-nav">Blog</a></li>
+                        <li><a href="contacto.html" class="enlace-nav">Contacto</a></li>
+                    </ul>
+                </div>
+                
+                <div class="controles">
+                    <button class="boton-tema" id="botonTema" aria-label="Modo oscuro/claro">
+                        <svg class="icono-luna" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
+                        <svg class="icono-sol" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+                        <span id="textoTema">Modo Claro</span>
+                    </button>
+                    <button class="boton-hamburguesa" id="btnHamburguesa" aria-label="Menú">
+                        <span class="linea-ham"></span><span class="linea-ham"></span><span class="linea-ham"></span>
+                    </button>
+                </div>
+            </div>
+        </header>
+
+        <div class="overlay-menu" id="overlayMenu"></div>
+        <div class="menu-lateral" id="menuLateral">
+            <button class="boton-cerrar" id="cerrarMenuBtn" aria-label="Cerrar menú">✕</button>
+            <ul class="lista-menu-lateral">
+                <li><a href="index.html" class="enlace-menu-movil">🏠 Inicio</a></li>
+                <li><a href="nosotros.html" class="enlace-menu-movil">👥 Nosotros</a></li>
+                <li><a href="servicios.html" class="enlace-menu-movil">🔧 Servicios</a></li>
+                <li><a href="portfolio.html" class="enlace-menu-movil activo">📁 Portfolio</a></li>
+                <li><a href="blog.html" class="enlace-menu-movil">📰 Blog</a></li>
+                <li><a href="contacto.html" class="enlace-menu-movil">📞 Contacto</a></li>
+                <li style="margin-top: 1rem; border-top: 1px solid var(--borde-suave); padding-top: 1rem;">
+                    <a href="#resumenes" class="enlace-menu-movil" onclick="cerrarMenuLateral()">📊 Resúmenes</a>
+                    <a href="#regulares" class="enlace-menu-movil" onclick="cerrarMenuLateral()">✅ Regulares</a>
+                    <a href="#irregulares" class="enlace-menu-movil" onclick="cerrarMenuLateral()">⚠️ Irregulares</a>
+                </li>
+            </ul>
+        </div>
+
+        <main>
+            <div class="hero-portfolio">
+                <h1>Portfolio de Formación Técnica</h1>
+                <p>Bienvenido a la sección de recursos de GasServicios. Explora nuestra guía interactiva de verbos técnicos y generales para potenciar las habilidades comunicativas de nuestro equipo.</p>
+            </div>
+
+            <section id="resumenes">
+                <h2>📚 Tablas de Resumen</h2>
+                <details class="acordeon-resumen">
+                    <summary>✅ Verbos Regulares</summary>
+                    <div class="contenido-acordeon">
+                        <div class="lista-verbos-resumen">
+                            <div class="item-verbo-resumen">
+                                <span class="verbo-infinitivo">Arrive</span>
+                                <div class="verbo-conjugaciones">
+                                    <div class="conjugacion-item">
+                                        <span class="conjugacion-tiempo">Presente</span>
+                                        <span class="conjugacion-valor">arrive/arrives</span>
+                                    </div>
+                                    <div class="conjugacion-item">
+                                        <span class="conjugacion-tiempo">Pasado</span>
+                                        <span class="conjugacion-valor">arrived</span>
+                                    </div>
+                                </div>
+                                <span class="verbo-traduccion">Llegar</span>
+                                </div>
+                            
+                            <div class="item-verbo-resumen">
+                                <span class="verbo-infinitivo">Carry</span>
+                                <div class="verbo-conjugaciones">
+                                    <div class="conjugacion-item">
+                                        <span class="conjugacion-tiempo">Presente</span>
+                                        <span class="conjugacion-valor">carry/carries</span>
+                                    </div>
+                                    <div class="conjugacion-item">
+                                        <span class="conjugacion-tiempo">Pasado</span>
+                                        <span class="conjugacion-valor">carried</span>
+                                    </div>
+                                </div>
+                                <span class="verbo-traduccion">Llevar/Cargar</span>
+                            </div>
+                            
+                            <div class="item-verbo-resumen">
+                                <span class="verbo-infinitivo">Clean</span>
+                                <div class="verbo-conjugaciones">
+                                    <div class="conjugacion-item">
+                                        <span class="conjugacion-tiempo">Presente</span>
+                                        <span class="conjugacion-valor">clean/cleans</span>
+                                    </div>
+                                    <div class="conjugacion-item">
+                                        <span class="conjugacion-tiempo">Pasado</span>
+                                        <span class="conjugacion-valor">cleaned</span>
+                                    </div>
+                                </div>
+                                <span class="verbo-traduccion">Limpiar</span>
+                            </div>
+                            
+                            <div class="item-verbo-resumen">
+                                <span class="verbo-infinitivo">Disappear</span>
+                                <div class="verbo-conjugaciones">
+                                    <div class="conjugacion-item">
+                                        <span class="conjugacion-tiempo">Presente</span>
+                                        <span class="conjugacion-valor">disappear/disappears</span>
+                                    </div>
+                                    <div class="conjugacion-item">
+                                        <span class="conjugacion-tiempo">Pasado</span>
+                                        <span class="conjugacion-valor">disappeared</span>
+                                    </div>
+                                </div>
+                                <span class="verbo-traduccion">Desaparecer</span>
+                            </div>
+                            
+                            <div class="item-verbo-resumen">
+                                <span class="verbo-infinitivo">Empty</span>
+                                <div class="verbo-conjugaciones">
+                                    <div class="conjugacion-item">
+                                        <span class="conjugacion-tiempo">Presente</span>
+                                        <span class="conjugacion-valor">empty/empties</span>
+                                    </div>
+                                    <div class="conjugacion-item">
+                                        <span class="conjugacion-tiempo">Pasado</span>
+                                        <span class="conjugacion-valor">emptied</span>
+                                    </div>
+                                </div>
+                                <span class="verbo-traduccion">Vaciar</span>
+                            </div>
+                            
+                            <div class="item-verbo-resumen">
+                                <span class="verbo-infinitivo">Finish</span>
+                                <div class="verbo-conjugaciones">
+                                    <div class="conjugacion-item">
+                                        <span class="conjugacion-tiempo">Presente</span>
+                                        <span class="conjugacion-valor">finish/finishes</span>
+                                    </div>
+                                    <div class="conjugacion-item">
+                                        <span class="conjugacion-tiempo">Pasado</span>
+                                        <span class="conjugacion-valor">finished</span>
+                                    </div>
+                                </div>
+                                <span class="verbo-traduccion">Terminar</span>
+                            </div>
+                        </div>
+                    </div>
+                </details>
+
+                <details class="acordeon-resumen">
+                    <summary>⚠️ Verbos Irregulares</summary>
+                    <div class="contenido-acordeon">
+                        <div class="lista-verbos-resumen">
+                            <div class="item-verbo-resumen">
+                                <span class="verbo-infinitivo">Be</span>
+                                <div class="verbo-conjugaciones">
+                                    <div class="conjugacion-item">
+                                        <span class="conjugacion-tiempo">Presente</span>
+                                        <span class="conjugacion-valor">am/is/are</span>
+                                    </div>
+                                    <div class="conjugacion-item">
+                                        <span class="conjugacion-tiempo">Pasado</span>
+                                        <span class="conjugacion-valor">was/were</span>
+                                    </div>
+                                </div>
+                                <span class="verbo-traduccion">Ser/Estar</span>
+                            </div>
+                            
+                            <div class="item-verbo-resumen">
+                                <span class="verbo-infinitivo">Do</span>
+                                <div class="verbo-conjugaciones">
+                                    <div class="conjugacion-item">
+                                        <span class="conjugacion-tiempo">Presente</span>
+                                        <span class="conjugacion-valor">do/does</span>
+                                    </div>
+                                    <div class="conjugacion-item">
+                                        <span class="conjugacion-tiempo">Pasado</span>
+                                        <span class="conjugacion-valor">did</span>
+                                    </div>
+                                </div>
+                                <span class="verbo-traduccion">Hacer</span>
+                            </div>
+                            
+                            <div class="item-verbo-resumen">
+                                <span class="verbo-infinitivo">Have</span>
+                                <div class="verbo-conjugaciones">
+                                    <div class="conjugacion-item">
+                                        <span class="conjugacion-tiempo">Presente</span>
+                                        <span class="conjugacion-valor">have/has</span>
+                                    </div>
+                                    <div class="conjugacion-item">
+                                        <span class="conjugacion-tiempo">Pasado</span>
+                                        <span class="conjugacion-valor">had</span>
+                                    </div>
+                                </div>
+                                <span class="verbo-traduccion">Tener</span>
+                            </div>
+                            
+                            <div class="item-verbo-resumen">
+                                <span class="verbo-infinitivo">Say</span>
+                                <div class="verbo-conjugaciones">
+                                    <div class="conjugacion-item">
+                                        <span class="conjugacion-tiempo">Presente</span>
+                                        <span class="conjugacion-valor">say/says</span>
+                                    </div>
+                                    <div class="conjugacion-item">
+                                        <span class="conjugacion-tiempo">Pasado</span>
+                                        <span class="conjugacion-valor">said</span>
+                                    </div>
+                                </div>
+                                <span class="verbo-traduccion">Decir</span>
+                            </div>
+                            
+                            <div class="item-verbo-resumen">
+                                <span class="verbo-infinitivo">Go</span>
+                                <div class="verbo-conjugaciones">
+                                    <div class="conjugacion-item">
+                                        <span class="conjugacion-tiempo">Presente</span>
+                                        <span class="conjugacion-valor">go/goes</span>
+                                    </div>
+                                    <div class="conjugacion-item">
+                                        <span class="conjugacion-tiempo">Pasado</span>
+                                        <span class="conjugacion-valor">went</span>
+                                    </div>
+                                </div>
+                                <span class="verbo-traduccion">Ir</span>
+                            </div>
+                            
+                            <div class="item-verbo-resumen">
+                                <span class="verbo-infinitivo">Make</span>
+                                <div class="verbo-conjugaciones">
+                                    <div class="conjugacion-item">
+                                        <span class="conjugacion-tiempo">Presente</span>
+                                        <span class="conjugacion-valor">make/makes</span>
+                                    </div>
+                                    <div class="conjugacion-item">
+                                        <span class="conjugacion-tiempo">Pasado</span>
+                                        <span class="conjugacion-valor">made</span>
+                                    </div>
+                                </div>
+                                <span class="verbo-traduccion">Hacer/Fabricar</span>
+                            </div>
+                        </div>
+                    </div>
+                </details>
+            </section>
+
+            <section id="regulares">
+                <h2>✅ Verbos Regulares</h2>
+                <div class="contenedor-cuadricula">
+                    <article>
+                        <h3>Arrive</h3>
+                        <p class="traduccion-pronunciacion">Llegar /əˈraɪv/</p>
+                        <details>
+                            <summary><h4>📖 Present Simple</h4></summary>
+                            <div class="contenido-acordeon">
+                                <span class="conjugacion-destacada">arrive / arrives</span>
+                                <ul class="lista-ejemplos">
+                                    <li>
+                                        <span class="etiqueta-forma">✅ Afirmativo</span>
+                                        <span class="texto-frase">The train arrives early.</span>
+                                        <span class="texto-traduccion">→ El tren llega temprano</span>
+                                        </li>
+                                    <li>
+                                        <span class="etiqueta-forma">❌ Negativo</span>
+                                        <span class="texto-frase">The train doesn't arrive early.</span>
+                                        <span class="texto-traduccion">→ El tren no llega temprano</span>
+                                    </li>
+                                    <li>
+                                        <span class="etiqueta-forma">❓ Interrogativo</span>
+                                        <span class="texto-frase">Does the train arrive early?</span>
+                                        <span class="texto-traduccion">→ ¿Llega el tren temprano?</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </details>
+                        <details>
+                            <summary><h4>⏰ Past Simple</h4></summary>
+                            <div class="contenido-acordeon">
+                                <span class="conjugacion-destacada">arrived</span>
+                                <ul class="lista-ejemplos">
+                                    <li>
+                                        <span class="etiqueta-forma">✅ Afirmativo</span>
+                                        <span class="texto-frase">The train arrived early.</span>
+                                        <span class="texto-traduccion">→ El tren llegó temprano</span>
+                                    </li>
+                                    <li>
+                                        <span class="etiqueta-forma">❌ Negativo</span>
+                                        <span class="texto-frase">The train didn't arrive early.</span>
+                                        <span class="texto-traduccion">→ El tren no llegó temprano</span>
+                                    </li>
+                                    <li>
+                                        <span class="etiqueta-forma">❓ Interrogativo</span>
+                                        <span class="texto-frase">Did the train arrive early?</span>
+                                        <span class="texto-traduccion">→ ¿Llegó el tren temprano?</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </details>
+                    </article>
+
+                    <article>
+                        <h3>Carry</h3>
+                        <p class="traduccion-pronunciacion">Llevar/Cargar /ˈkæri/</p>
+                        <details>
+                            <summary><h4>📖 Present Simple</h4></summary>
+                            <div class="contenido-acordeon">
+                                <span class="conjugacion-destacada">carry / carries</span>
+                                <ul class="lista-ejemplos">
+                                    <li><span class="etiqueta-forma">✅ Afirmativo</span> <span class="texto-frase">He carries the box.</span> <span class="texto-traduccion">→ Él carga la caja</span></li>
+                                    <li><span class="etiqueta-forma">❌ Negativo</span> <span class="texto-frase">He doesn't carry the box.</span> <span class="texto-traduccion">→ Él no carga la caja</span></li>
+                                    <li><span class="etiqueta-forma">❓ Interrogativo</span> <span class="texto-frase">Does he carry the box?</span> <span class="texto-traduccion">→ ¿Carga él la caja?</span></li>
+                                </ul>
+                            </div>
+                        </details>
+                        <details>
+                            <summary><h4>⏰ Past Simple</h4></summary>
+                            <div class="contenido-acordeon">
+                                <span class="conjugacion-destacada">carried</span>
+                                <ul class="lista-ejemplos">
+                                    <li><span class="etiqueta-forma">✅ Afirmativo</span> <span class="texto-frase">He carried the box.</span> <span class="texto-traduccion">→ Él cargó la caja</span></li>
+                                    <li><span class="etiqueta-forma">❌ Negativo</span> <span class="texto-frase">He didn't carry the box.</span> <span class="texto-traduccion">→ Él no cargó la caja</span></li>
+                                    <li><span class="etiqueta-forma">❓ Interrogativo</span> <span class="texto-frase">Did he carry the box?</span> <span class="texto-traduccion">→ ¿Cargó él la caja?</span></li>
+                                </ul>
+                            </div>
+                        </details>
+                    </article>
+
+                    <article>
+                        <h3>Clean</h3>
+                        <p class="traduccion-pronunciacion">Limpiar /kliːn/</p>
+                        <details>
+                            <summary><h4>📖 Present Simple</h4></summary>
+                            <div class="contenido-acordeon">
+                                <span class="conjugacion-destacada">clean / cleans</span>
+                                <ul class="lista-ejemplos">
+                                    <li><span class="etiqueta-forma">✅ Afirmativo</span> <span class="texto-frase">They clean the house.</span> <span class="texto-traduccion">→ Ellos limpian la casa</span></li>
+                                    <li><span class="etiqueta-forma">❌ Negativo</span> <span class="texto-frase">They don't clean the house.</span> <span class="texto-traduccion">→ Ellos no limpian la casa</span></li>
+                                    <li><span class="etiqueta-forma">❓ Interrogativo</span> <span class="texto-frase">Do they clean the house?</span> <span class="texto-traduccion">→ ¿Limpian ellos la casa?</span></li>
+                                </ul>
+                            </div>
+                        </details>
+                        <details>
+                            <summary><h4>⏰ Past Simple</h4></summary>
+                            <div class="contenido-acordeon">
+                                <span class="conjugacion-destacada">cleaned</span>
+                                <ul class="lista-ejemplos">
+                                    <li><span class="etiqueta-forma">✅ Afirmativo</span> <span class="texto-frase">They cleaned the house.</span> <span class="texto-traduccion">→ Ellos limpiaron la casa</span></li>
+                                    <li><span class="etiqueta-forma">❌ Negativo</span> <span class="texto-frase">They didn't clean the house.</span> <span class="texto-traduccion">→ Ellos no limpiaron la casa</span></li>
+                                    <li><span class="etiqueta-forma">❓ Interrogativo</span> <span class="texto-frase">Did they clean the house?</span> <span class="texto-traduccion">→ ¿Limpiaron ellos la casa?</span></li>
+                                </ul>
+                            </div>
+                        </details>
+                    </article>
+
+                    <article>
+                        <h3>Disappear</h3>
+                        <p class="traduccion-pronunciacion">Desaparecer /ˌdɪsəˈpɪr/</p>
+                        <details>
+                            <summary><h4>📖 Present Simple</h4></summary>
+                            <div class="contenido-acordeon">
+                                <span class="conjugacion-destacada">disappear / disappears</span>
+                                <ul class="lista-ejemplos">
+                                    <li><span class="etiqueta-forma">✅ Afirmativo</span> <span class="texto-frase">The cat disappears.</span> <span class="texto-traduccion">→ El gato desaparece</span></li>
+                                    <li><span class="etiqueta-forma">❌ Negativo</span> <span class="texto-frase">The cat doesn't disappear.</span> <span class="texto-traduccion">→ El gato no desaparece</span></li>
+                                    <li><span class="etiqueta-forma">❓ Interrogativo</span> <span class="texto-frase">Does the cat disappear?</span> <span class="texto-traduccion">→ ¿Desaparece el gato?</span></li>
+                                </ul>
+                            </div>
+                        </details>
+                        <details>
+                            <summary><h4>⏰ Past Simple</h4></summary>
+                            <div class="contenido-acordeon">
+                                <span class="conjugacion-destacada">disappeared</span>
+                                <ul class="lista-ejemplos">
+                                    <li><span class="etiqueta-forma">✅ Afirmativo</span> <span class="texto-frase">The cat disappeared.</span> <span class="texto-traduccion">→ El gato desapareció</span></li>
+                                    <li><span class="etiqueta-forma">❌ Negativo</span> <span class="texto-frase">The cat didn't disappear.</span> <span class="texto-traduccion">→ El gato no desapareció</span></li>
+                                    <li><span class="etiqueta-forma">❓ Interrogativo</span> <span class="texto-frase">Did the cat disappear?</span> <span class="texto-traduccion">→ ¿Desapareció el gato?</span></li>
+                                </ul>
+                            </div>
+                        </details>
+                    </article>
+
+                    <article>
+                        <h3>Empty</h3>
+                        <p class="traduccion-pronunciacion">Vaciar /ˈempti/</p>
+                        <details>
+                            <summary><h4>📖 Present Simple</h4></summary>
+                            <div class="contenido-acordeon">
+                                <span class="conjugacion-destacada">empty / empties</span>
+                                <ul class="lista-ejemplos">
+                                    <li><span class="etiqueta-forma">✅ Afirmativo</span> <span class="texto-frase">I empty the bin.</span> <span class="texto-traduccion">→ Yo vacío la papelera</span></li>
+                                    <li><span class="etiqueta-forma">❌ Negativo</span> <span class="texto-frase">I don't empty the bin.</span> <span class="texto-traduccion">→ Yo no vacío la papelera</span></li>
+                                    <li><span class="etiqueta-forma">❓ Interrogativo</span> <span class="texto-frase">Do I empty the bin?</span> <span class="texto-traduccion">→ ¿Vacío yo la papelera?</span></li>
+                                </ul>
+                            </div>
+                        </details>
+                        <details>
+                            <summary><h4>⏰ Past Simple</h4></summary>
+                            <div class="contenido-acordeon">
+                                <span class="conjugacion-destacada">emptied</span>
+                                <ul class="lista-ejemplos">
+                                    <li><span class="etiqueta-forma">✅ Afirmativo</span> <span class="texto-frase">I emptied the bin.</span> <span class="texto-traduccion">→ Yo vacié la papelera</span></li>
+                                    <li><span class="etiqueta-forma">❌ Negativo</span> <span class="texto-frase">I didn't empty the bin.</span> <span class="texto-traduccion">→ Yo no vacié la papelera</span></li>
+                                    <li><span class="etiqueta-forma">❓ Interrogativo</span> <span class="texto-frase">Did I empty the bin?</span> <span class="texto-traduccion">→ ¿Vacié yo la papelera?</span></li>
+                                </ul>
+                            </div>
+                        </details>
+                    </article>
+
+                    <article>
+                        <h3>Finish</h3>
+                        <p class="traduccion-pronunciacion">Terminar /ˈfɪnɪʃ/</p>
+                        <details>
+                            <summary><h4>📖 Present Simple</h4></summary>
+                            <div class="contenido-acordeon">
+                                <span class="conjugacion-destacada">finish / finishes</span>
+                                <ul class="lista-ejemplos">
+                                    <li><span class="etiqueta-forma">✅ Afirmativo</span> <span class="texto-frase">We finish the work.</span> <span class="texto-traduccion">→ Nosotros terminamos el trabajo</span></li>
+                                    <li><span class="etiqueta-forma">❌ Negativo</span> <span class="texto-frase">We don't finish the work.</span> <span class="texto-traduccion">→ Nosotros no terminamos el trabajo</span></li>
+                                    <li><span class="etiqueta-forma">❓ Interrogativo</span> <span class="texto-frase">Do we finish the work?</span> <span class="texto-traduccion">→ ¿Terminamos nosotros el trabajo?</span></li>
+                                </ul>
+                            </div>
+                        </details>
+                        <details>
+                            <summary><h4>⏰ Past Simple</h4></summary>
+                            <div class="contenido-acordeon">
+                                <span class="conjugacion-destacada">finished</span>
+                                <ul class="lista-ejemplos">
+                                    <li><span class="etiqueta-forma">✅ Afirmativo</span> <span class="texto-frase">We finished the work.</span> <span class="texto-traduccion">→ Nosotros terminamos el trabajo</span></li>
+                                    <li><span class="etiqueta-forma">❌ Negativo</span> <span class="texto-frase">We didn't finish the work.</span> <span class="texto-traduccion">→ Nosotros no terminamos el trabajo</span></li>
+                                    <li><span class="etiqueta-forma">❓ Interrogativo</span> <span class="texto-frase">Did we finish the work?</span> <span class="texto-traduccion">→ ¿Terminamos nosotros el trabajo?</span></li>
+                                </ul>
+                            </div>
+                        </details>
+                    </article>
+
+                </div>
+            </section>
+
+            <section id="irregulares">
+                <h2>⚠️ Verbos Irregulares</h2>
+                <div class="contenedor-cuadricula">
+
+                    <article>
+                        <h3>Be</h3>
+                        <p class="traduccion-pronunciacion">Ser / Estar /biː/</p>
+                        <details>
+                            <summary><h4>📖 Present Simple</h4></summary>
+                            <div class="contenido-acordeon">
+                                <span class="conjugacion-destacada">am / is / are</span>
+                                <ul class="lista-ejemplos">
+                                    <li><span class="etiqueta-forma">✅ Afirmativo</span> <span class="texto-frase">She is happy.</span> <span class="texto-traduccion">→ Ella es/está feliz</span></li>
+                                    <li><span class="etiqueta-forma">❌ Negativo</span> <span class="texto-frase">She isn't happy.</span> <span class="texto-traduccion">→ Ella no es/está feliz</span></li>
+                                    <li><span class="etiqueta-forma">❓ Interrogativo</span> <span class="texto-frase">Is she happy?</span> <span class="texto-traduccion">→ ¿Es/está ella feliz?</span></li>
+                                </ul>
+                            </div>
+                        </details>
+                        <details>
+                            <summary><h4>⏰ Past Simple</h4></summary>
+                            <div class="contenido-acordeon">
+                                <span class="conjugacion-destacada">was / were</span>
+                                <ul class="lista-ejemplos">
+                                    <li><span class="etiqueta-forma">✅ Afirmativo</span> <span class="texto-frase">She was happy.</span> <span class="texto-traduccion">→ Ella era/estaba feliz</span></li>
+                                    <li><span class="etiqueta-forma">❌ Negativo</span> <span class="texto-frase">She wasn't happy.</span> <span class="texto-traduccion">→ Ella no era/estaba feliz</span></li>
+                                    <li><span class="etiqueta-forma">❓ Interrogativo</span> <span class="texto-frase">Was she happy?</span> <span class="texto-traduccion">→ ¿Era/estaba ella feliz?</span></li>
+                                </ul>
+                            </div>
+                        </details>
+                    </article>
+
+                    <article>
+                        <h3>Do</h3>
+                        <p class="traduccion-pronunciacion">Hacer /duː/</p>
+                        <details>
+                            <summary><h4>📖 Present Simple</h4></summary>
+                            <div class="contenido-acordeon">
+                                <span class="conjugacion-destacada">do / does</span>
+                                <ul class="lista-ejemplos">
+                                    <li><span class="etiqueta-forma">✅ Afirmativo</span> <span class="texto-frase">I do my homework.</span> <span class="texto-traduccion">→ Yo hago mis deberes</span></li>
+                                    <li><span class="etiqueta-forma">❌ Negativo</span> <span class="texto-frase">I don't do my homework.</span> <span class="texto-traduccion">→ Yo no hago mis deberes</span></li>
+                                    <li><span class="etiqueta-forma">❓ Interrogativo</span> <span class="texto-frase">Do I do my homework?</span> <span class="texto-traduccion">→ ¿Hago yo mis deberes?</span></li>
+                                </ul>
+                            </div>
+                        </details>
+                        <details>
+                            <summary><h4>⏰ Past Simple</h4></summary>
+                            <div class="contenido-acordeon">
+                                <span class="conjugacion-destacada">did</span>
+                                <ul class="lista-ejemplos">
+                                    <li><span class="etiqueta-forma">✅ Afirmativo</span> <span class="texto-frase">I did my homework.</span> <span class="texto-traduccion">→ Yo hice mis deberes</span></li>
+                                    <li><span class="etiqueta-forma">❌ Negativo</span> <span class="texto-frase">I didn't do my homework.</span> <span class="texto-traduccion">→ Yo no hice mis deberes</span></li>
+                                    <li><span class="etiqueta-forma">❓ Interrogativo</span> <span class="texto-frase">Did I do my homework?</span> <span class="texto-traduccion">→ ¿Hice yo mis deberes?</span></li>
+                                </ul>
+                            </div>
+                        </details>
+                    </article>
+
+                    <article>
+                        <h3>Have</h3>
+                        <p class="traduccion-pronunciacion">Tener /hæv/</p>
+                        <details>
+                            <summary><h4>📖 Present Simple</h4></summary>
+                            <div class="contenido-acordeon">
+                                <span class="conjugacion-destacada">have / has</span>
+                                <ul class="lista-ejemplos">
+                                    <li><span class="etiqueta-forma">✅ Afirmativo</span> <span class="texto-frase">You have a car.</span> <span class="texto-traduccion">→ Tú tienes un coche</span></li>
+                                    <li><span class="etiqueta-forma">❌ Negativo</span> <span class="texto-frase">You don't have a car.</span> <span class="texto-traduccion">→ Tú no tienes un coche</span></li>
+                                    <li><span class="etiqueta-forma">❓ Interrogativo</span> <span class="texto-frase">Do you have a car?</span> <span class="texto-traduccion">→ ¿Tienes tú un coche?</span></li>
+                                </ul>
+                            </div>
+                        </details>
+                        <details>
+                            <summary><h4>⏰ Past Simple</h4></summary>
+                            <div class="contenido-acordeon">
+                                <span class="conjugacion-destacada">had</span>
+                                <ul class="lista-ejemplos">
+                                    <li><span class="etiqueta-forma">✅ Afirmativo</span> <span class="texto-frase">You had a car.</span> <span class="texto-traduccion">→ Tú tenías un coche</span></li>
+                                    <li><span class="etiqueta-forma">❌ Negativo</span> <span class="texto-frase">You didn't have a car.</span> <span class="texto-traduccion">→ Tú no tenías un coche</span></li>
+                                    <li><span class="etiqueta-forma">❓ Interrogativo</span> <span class="texto-frase">Did you have a car?</span> <span class="texto-traduccion">→ ¿Tenías tú un coche?</span></li>
+                                </ul>
+                            </div>
+                        </details>
+                    </article>
+
+                    <article>
+                        <h3>Say</h3>
+                        <p class="traduccion-pronunciacion">Decir /seɪ/</p>
+                        <details>
+                            <summary><h4>📖 Present Simple</h4></summary>
+                            <div class="contenido-acordeon">
+                                <span class="conjugacion-destacada">say / says</span>
+                                <ul class="lista-ejemplos">
+                                    <li><span class="etiqueta-forma">✅ Afirmativo</span> <span class="texto-frase">He says the truth.</span> <span class="texto-traduccion">→ Él dice la verdad</span></li>
+                                    <li><span class="etiqueta-forma">❌ Negativo</span> <span class="texto-frase">He doesn't say the truth.</span> <span class="texto-traduccion">→ Él no dice la verdad</span></li>
+                                    <li><span class="etiqueta-forma">❓ Interrogativo</span> <span class="texto-frase">Does he say the truth?</span> <span class="texto-traduccion">→ ¿Dice él la verdad?</span></li>
+                                </ul>
+                            </div>
+                        </details>
+                        <details>
+                            <summary><h4>⏰ Past Simple</h4></summary>
+                            <div class="contenido-acordeon">
+                                <span class="conjugacion-destacada">said /sed/</span>
+                                <ul class="lista-ejemplos">
+                                    <li><span class="etiqueta-forma">✅ Afirmativo</span> <span class="texto-frase">He said the truth.</span> <span class="texto-traduccion">→ Él dijo la verdad</span></li>
+                                    <li><span class="etiqueta-forma">❌ Negativo</span> <span class="texto-frase">He didn't say the truth.</span> <span class="texto-traduccion">→ Él no dijo la verdad</span></li>
+                                    <li><span class="etiqueta-forma">❓ Interrogativo</span> <span class="texto-frase">Did he say the truth?</span> <span class="texto-traduccion">→ ¿Dijo él la verdad?</span></li>
+                                </ul>
+                            </div>
+                        </details>
+                    </article>
+
+                    <article>
+                        <h3>Go</h3>
+                        <p class="traduccion-pronunciacion">Ir /ɡoʊ/</p>
+                        <details>
+                            <summary><h4>📖 Present Simple</h4></summary>
+                            <div class="contenido-acordeon">
+                                <span class="conjugacion-destacada">go / goes</span>
+                                <ul class="lista-ejemplos">
+                                    <li><span class="etiqueta-forma">✅ Afirmativo</span> <span class="texto-frase">They go to the park.</span> <span class="texto-traduccion">→ Ellos van al parque</span></li>
+                                    <li><span class="etiqueta-forma">❌ Negativo</span> <span class="texto-frase">They don't go to the park.</span> <span class="texto-traduccion">→ Ellos no van al parque</span></li>
+                                    <li><span class="etiqueta-forma">❓ Interrogativo</span> <span class="texto-frase">Do they go to the park?</span> <span class="texto-traduccion">→ ¿Van ellos al parque?</span></li>
+                                </ul>
+                            </div>
+                        </details>
+                        <details>
+                            <summary><h4>⏰ Past Simple</h4></summary>
+                            <div class="contenido-acordeon">
+                                <span class="conjugacion-destacada">went</span>
+                                <ul class="lista-ejemplos">
+                                    <li><span class="etiqueta-forma">✅ Afirmativo</span> <span class="texto-frase">They went to the park.</span> <span class="texto-traduccion">→ Ellos fueron al parque</span></li>
+                                    <li><span class="etiqueta-forma">❌ Negativo</span> <span class="texto-frase">They didn't go to the park.</span> <span class="texto-traduccion">→ Ellos no fueron al parque</span></li>
+                                    <li><span class="etiqueta-forma">❓ Interrogativo</span> <span class="texto-frase">Did they go to the park?</span> <span class="texto-traduccion">→ ¿Fueron ellos al parque?</span></li>
+                                </ul>
+                            </div>
+                        </details>
+                    </article>
+
+                    <article>
+                        <h3>Make</h3>
+                        <p class="traduccion-pronunciacion">Hacer/Fabricar /meɪk/</p>
+                        <details>
+                            <summary><h4>📖 Present Simple</h4></summary>
+                            <div class="contenido-acordeon">
+                                <span class="conjugacion-destacada">make / makes</span>
+                                <ul class="lista-ejemplos">
+                                    <li><span class="etiqueta-forma">✅ Afirmativo</span> <span class="texto-frase">We make a cake.</span> <span class="texto-traduccion">→ Nosotros hacemos un pastel</span></li>
+                                    <li><span class="etiqueta-forma">❌ Negativo</span> <span class="texto-frase">We don't make a cake.</span> <span class="texto-traduccion">→ Nosotros no hacemos un pastel</span></li>
+                                    <li><span class="etiqueta-forma">❓ Interrogativo</span> <span class="texto-frase">Do we make a cake?</span> <span class="texto-traduccion">→ ¿Hacemos nosotros un pastel?</span></li>
+                                </ul>
+                            </div>
+                        </details>
+                        <details>
+                            <summary><h4>⏰ Past Simple</h4></summary>
+                            <div class="contenido-acordeon">
+                                <span class="conjugacion-destacada">made</span>
+                                <ul class="lista-ejemplos">
+                                    <li><span class="etiqueta-forma">✅ Afirmativo</span> <span class="texto-frase">We made a cake.</span> <span class="texto-traduccion">→ Nosotros hicimos un pastel</span></li>
+                                    <li><span class="etiqueta-forma">❌ Negativo</span> <span class="texto-frase">We didn't make a cake.</span> <span class="texto-traduccion">→ Nosotros no hicimos un pastel</span></li>
+                                    <li><span class="etiqueta-forma">❓ Interrogativo</span> <span class="texto-frase">Did we make a cake?</span> <span class="texto-traduccion">→ ¿Hicimos nosotros un pastel?</span></li>
+                                </ul>
+                            </div>
+                        </details>
+                    </article>
+
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <footer class="pie-pagina">
+        <div class="contenedor-web">
+            <div class="footer-grid">
+                <div class="bloque-footer">
+                    <h4>GasServicios</h4>
+                    <p style="margin-bottom: 0.6rem; color: var(--footer-texto-secundario);">Seguridad energética con excelencia. +20 años garantizando tranquilidad.</p>
+                    <div class="social-icons">
+                        <a href="#" aria-label="Facebook">📘</a>
+                        <a href="#" aria-label="Twitter">🐦</a>
+                        <a href="#" aria-label="Instagram">📸</a>
+                        <a href="#" aria-label="LinkedIn">🔗</a>
+                    </div>
+                </div>
+                <div class="bloque-footer">
+                    <h4>Enlaces</h4>
+                    <a href="index.html">Inicio</a>
+                    <a href="nosotros.html">Nosotros</a>
+                    <a href="servicios.html">Servicios</a>
+                    <a href="portfolio.html">Portfolio</a>
+                    <a href="blog.html">Blog</a>
+                    <a href="contacto.html">Contacto</a>
+                </div>
+                <div class="bloque-footer">
+                    <h4>Servicios</h4>
+                    <a href="servicios.html">Instalaciones de gas</a>
+                    <a href="servicios.html">Mantenimiento preventivo</a>
+                    <a href="servicios.html">Certificaciones oficiales</a>
+                    <a href="servicios.html">Emergencias 24/7</a>
+                </div>
+                <div class="bloque-footer">
+                    <h4>Contacto</h4>
+                    <div class="contacto-item"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg><span>+34 900 123 456</span></div>
+                    <div class="contacto-item"><svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22 6 12 13 2 6"/></svg><span>info@gasservicios.es</span></div>
+                </div>
+                <div class="bloque-footer">
+                    <h4>Legal</h4>
+                    <a href="#">Política de Privacidad</a>
+                    <a href="#">Política de Cookies</a>
+                    <a href="#">Aviso Legal</a>
+                    <a href="#">Declaración de Accesibilidad</a>
+                </div>
+                <div class="bloque-footer">
+                    <h4>Información</h4>
+                    <a href="#">Preguntas frecuentes</a>
+                    <a href="#">Trabaja con nosotros</a>
+                    <a href="#">Mapa del sitio</a>
+                </div>
+            </div>
+
+            <section class="seccion-newsletter">
+                <div class="contenedor-newsletter">
+                    <h3 class="titulo-newsletter">Suscríbete a nuestro boletín</h3>
+                    <p class="descripcion-newsletter">Recibe consejos de seguridad y novedades del sector.</p>
+                    <form id="footerNewsletterForm" class="formulario-newsletter">
+                        <label for="newsEmail" class="solo-lectura">Correo electrónico</label>
+                        <input type="email" id="newsEmail" placeholder="tu@email.com" required>
+                        <button type="submit">Suscribirme</button>
+                    </form>
+                </div>
+            </section>
+
+            <div class="copyright">
+                <p>&copy; <span id="year"></span> GasServicios · Todos los derechos reservados · Instalador autorizado</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        (function() {
+            // ==========================================
+            // LÓGICA DEL MENÚ Y TEMA DE GASSERVICIOS
+            // ==========================================
+            const elementoRaiz = document.documentElement;
+            const botonTema = document.getElementById('botonTema');
+            const textoTema = document.getElementById('textoTema');
+            const btnHamburguesa = document.getElementById('btnHamburguesa');
+            const menuLateral = document.getElementById('menuLateral');
+            const overlayMenu = document.getElementById('overlayMenu');
+            const cerrarBtn = document.getElementById('cerrarMenuBtn');
+            const footerForm = document.getElementById('footerNewsletterForm');
+            
+            // --- Menú Móvil ---
+            window.cerrarMenuLateral = function() {
+                if(menuLateral && overlayMenu && btnHamburguesa) {
+                    menuLateral.classList.remove('abierto');
+                    overlayMenu.classList.remove('visible');
+                    document.body.style.overflow = '';
+                    btnHamburguesa.setAttribute('aria-expanded', 'false');
+                }
+            };
+            function abrirMenu() {
+                menuLateral.classList.add('abierto');
+                overlayMenu.classList.add('visible');
+                document.body.style.overflow = 'hidden';
+                btnHamburguesa.setAttribute('aria-expanded', 'true');
+            }
+            if(btnHamburguesa) btnHamburguesa.addEventListener('click', abrirMenu);
+            if(cerrarBtn) cerrarBtn.addEventListener('click', cerrarMenuLateral);
+            if(overlayMenu) overlayMenu.addEventListener('click', cerrarMenuLateral);
+            
+            // --- Tema Claro / Oscuro ---
+            function setTema(tema) {
+                elementoRaiz.setAttribute('data-tema', tema);
+                if(textoTema) textoTema.textContent = tema === 'claro' ? 'Modo Claro' : 'Modo Oscuro';
+                localStorage.setItem('gas-tema', tema);
+            }
+            function toggleTema() {
+                const actual = elementoRaiz.getAttribute('data-tema');
+                setTema(actual === 'claro' ? 'oscuro' : 'claro');
+            }
+            if(botonTema) botonTema.addEventListener('click', toggleTema);
+            
+            const temaGuardado = localStorage.getItem('gas-tema');
+            if(temaGuardado && (temaGuardado === 'claro' || temaGuardado === 'oscuro')) {
+                setTema(temaGuardado);
+            } else if(window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                setTema('oscuro');
+            } else {
+                setTema('claro');
+            }
+            
+            // --- Footer ---
+            if(document.getElementById('year')) {
+                document.getElementById('year').textContent = new Date().getFullYear();
+            }
+            
+            if(footerForm) {
+                footerForm.addEventListener('submit', (e) => {
+                    e.preventDefault();
+                    const input = document.getElementById('newsEmail');
+                    if(input.value.trim() && input.value.includes('@')) {
+                        alert(`✅ Suscripción exitosa: ${input.value}`);
+                        input.value = '';
+                    } else alert('Correo inválido');
+                });
+            }
+        })();
+    </script>
+</body>
+</html>

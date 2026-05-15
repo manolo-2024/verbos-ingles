@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="es" data-tema="claro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="description" content="Servicios de GasServicios y recursos para practicar inglés con horarios y frases.">
+    <title>GasServicios | Servicios y Horarios</title>
+    
+    <script>
+        try {
+            const temaGuardado = localStorage.getItem('gas-tema');
+            if (temaGuardado) {
+                document.documentElement.setAttribute('data-tema', temaGuardado);
+            } else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                document.documentElement.setAttribute('data-tema', 'oscuro');
+            }
+        } catch (e) {}
+    </script>
+
+   
+
+    <link rel="stylesheet" href="./css/estilos.css">
+</head>
+<body>
+    <div class="contenedor-web">
+        <header class="cabecera">
+            <div class="cabecera-interna">
+                <a href="index.html" class="logo-enlace">
+                    <div class="logo-icono" aria-hidden="true">
+                        <svg viewBox="0 0 24 24"><path d="M12 2C8.5 2 6 4.5 6 8c0 2.5 1.5 4.5 3 6.5 1 1.5 2 3 2 5.5 0-2.5 1-4 2-5.5 1.5-2 3-4 3-6.5 0-3.5-2.5-6-6-6z"/><circle cx="12" cy="8" r="2"/></svg>
+                    </div>
+                    <div class="texto-logo"><h1>GasServicios</h1><p>energía segura · 24h</p></div>
+                </a>
+                
+                <div class="nav-escritorio">
+                    <ul class="lista-nav">
+                        <li><a href="index.html" class="enlace-nav">Inicio</a></li>
+                        <li><a href="nosotros.html" class="enlace-nav">Nosotros</a></li>
+                        <li><a href="servicios.html" class="enlace-nav activo">Servicios</a></li>
+                        <li><a href="portfolio.html" class="enlace-nav">Portfolio</a></li>
+                        <li><a href="blog.html" class="enlace-nav">Blog</a></li>
+                        <li><a href="contacto.html" class="enlace-nav">Contacto</a></li>
+                    </ul>
+                </div>
+                
+                <div class="controles">
+                    <button class="boton-tema" id="botonTema" aria-label="Modo oscuro/claro">
+                        <svg style="width: 1.2rem; height: 1.2rem; fill: currentColor;" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
+                        <span id="textoTema">Cambiar Tema</span>
+                    </button>
+                    <button class="boton-hamburguesa" id="btnHamburguesa" aria-label="Menú">
+                        <span class="linea-ham"></span><span class="linea-ham"></span><span class="linea-ham"></span>
+                    </button>
+                </div>
+            </div>
+        </header>
+
+        <div class="overlay-menu" id="overlayMenu"></div>
+        <div class="menu-lateral" id="menuLateral">
+            <button class="boton-cerrar" id="cerrarMenuBtn" aria-label="Cerrar menú">✕</button>
+            <ul class="lista-menu-lateral">
+                <li><a href="index.html" class="enlace-menu-movil">🏠 Inicio</a></li>
+                <li><a href="nosotros.html" class="enlace-menu-movil">👥 Nosotros</a></li>
+                <li><a href="servicios.html" class="enlace-menu-movil activo">🔧 Servicios</a></li>
+                <li><a href="portfolio.html" class="enlace-menu-movil">📁 Portfolio</a></li>
+                <li><a href="blog.html" class="enlace-menu-movil">📰 Blog</a></li>
+                <li><a href="contacto.html" class="enlace-menu-movil">📞 Contacto</a></li>
+            </ul>
+        </div>
+
+        <main>
+            <div class="hero-seccion">
+                <h1>Servicios & Formación Horaria</h1>
+                <p>Gestionamos instalaciones a cualquier hora del día. Utiliza nuestro reloj en vivo y nuestra guía de frases para comunicarte de manera efectiva en cualquier situación técnica o de urgencia en inglés.</p>
+            </div>
+
+            <section class="seccion-reloj">
+                <div class="titulo-reloj">🕒 Horario y Pronunciación en Directo</div>
+                <div class="demo-reloj">
+                    <canvas id="lienzoReloj" class="reloj-analogico" width="200" height="200" aria-label="Reloj analógico"></canvas>
+                    <div class="reloj-info">
+                        <div class="hora-digital" id="relojDigital" aria-live="polite">--:--</div>
+                        <div class="frase-hora" id="fraseHora" aria-live="polite">It's ...</div>
+                    </div>
+                </div>
+                <p style="font-size:0.85rem; margin-top:1.5rem; text-align:center; color: var(--texto-secundario);">
+                    ⏱️ El reloj se actualiza cada segundo. Practica decir la hora en inglés con la frase mostrada.
+                </p>
+            </section>
+
+            <h2 style="margin-bottom: 1.5rem; font-weight: 600; font-size: 1.6rem; color: var(--primario);">
+                📌 Guía de frases útiles para técnicos
+            </h2>
+            <section class="seccion-frases" id="contenedorFrases" aria-label="Frases para practicar inglés">
+                </section>
+        </main>
+    </div>
+
+    <footer class="pie-pagina">
+        <div class="contenedor-web">
+            <h4 style="font-size: 1.1rem; font-weight: 700;">GasServicios</h4>
+            <p style="color: var(--footer-texto-secundario);">Seguridad energética con excelencia.</p>
+            <div class="copyright">
+                <p>&copy; 2024 GasServicios · Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        (function() {
+            'use strict';
+
+            // ==========================================
+            // 1. ACORDEONES DE FRASES 
+            // ==========================================
+            const datosFrases = [
+                { espanol: "Hola, sé que es un poco tarde, pero por favor intenta completar las siguientes frases.", ingles: "Hello, I know it's a bit late, but please try to complete the following sentences.", pronunciacion: "jelou, ai nou its e bit leit, bat plis trai tu complit da folouing sentensiz." },
+                { espanol: "A mi primo solamente le gusta dormir en su cama.", ingles: "My cousin only likes to sleep in his bed.", pronunciacion: "mai cosen onli laiks tu slip in jis bed" },
+                { espanol: "Nosotros queremos visitar la playa.", ingles: "We want to visit the beach.", pronunciacion: "wi uont tu visit de bich" },
+                { espanol: "Vosotros tenéis que hacer su tarea.", ingles: "You have to do your homework.", pronunciacion: "iu jav tu du yor jomwork" },
+                { espanol: "Necesitas comer más, estás muy flaco.", ingles: "You need to eat more, you are too skinny.", pronunciacion: "iu nid tu it mor, iu ar tu skini" },
+                { espanol: "Son las cinco menos cuarto.", ingles: "It's a quarter to five.", pronunciacion: "its e cuorter tu faiv" },
+                { espanol: "Son las cinco menos veinte.", ingles: "It's twenty to five.", pronunciacion: "its tueni tu faiv" },
+                { espanol: "Son las cuatro y cinco.", ingles: "It's five past four.", pronunciacion: "its faiv past for" },
+                { espanol: "Son las cuatro y diez.", ingles: "It's ten past four.", pronunciacion: "its ten past for" },
+                { espanol: "Son las cuatro y cuarto.", ingles: "It's a quarter past four.", pronunciacion: "its e cuorter past for" },
+                { espanol: "Son las cuatro y veinte.", ingles: "It's twenty past four.", pronunciacion: "its tueni past for" },
+                { espanol: "Son las cinco menos veinticinco.", ingles: "It's twenty-five to five.", pronunciacion: "its tueni-faiv tu faiv" },
+                { espanol: "Son las cuatro y media.", ingles: "It's half past four.", pronunciacion: "its jaf past for" },
+                { espanol: "Son las cuatro y veinticinco.", ingles: "It's twenty-five past four.", pronunciacion: "its tueni-faiv past for" },
+                { espanol: "Son las 3:25", ingles: "It's twenty-five past three.", pronunciacion: "its tueni-faiv past fri" },
+                { espanol: "Son las 12:00", ingles: "It's twelve o'clock.", pronunciacion: "its tuelv o-klok" },
+                { espanol: "Son las 6:15", ingles: "It's a quarter past six.", pronunciacion: "its cuorter past six" },
+                { espanol: "Son las 4:10", ingles: "It's ten past four.", pronunciacion: "its ten past for" },
+                { espanol: "Son las 8:50", ingles: "It's ten to nine.", pronunciacion: "its ten tu nain" },
+                { espanol: "Son las 2:35", ingles: "It's twenty-five to three.", pronunciacion: "its tueni-faiv tu fri" },
+                { espanol: "Son las 10:00", ingles: "It's ten o'clock.", pronunciacion: "its ten o-klok" },
+                { espanol: "Son las 1:30", ingles: "It's half past one.", pronunciacion: "its jaf past uan" },
+                { espanol: "Son las 5:45", ingles: "It's a quarter to six.", pronunciacion: "its cuorter tu six" },
+                { espanol: "Son las 7:20", ingles: "It's twenty past seven.", pronunciacion: "its tueni past seven" },
+                { espanol: "Son las 9:05", ingles: "It's five past nine.", pronunciacion: "its faiv past nain" },
+                { espanol: "Son las 17:50", ingles: "It's ten to six.", pronunciacion: "its ten tu six" },
+                { espanol: "La tubería está perdiendo gas, necesitamos arreglarla.", ingles: "The pipe is leaking gas, we need to fix it.", pronunciacion: "da paip is likin gas, wi nid tu fix it." }
+            ];
+
+            const contenedorFrases = document.getElementById('contenedorFrases');
+            
+            if (contenedorFrases) {
+                datosFrases.forEach(function(frase) {
+                    const articulo = document.createElement('article');
+                    articulo.className = 'elemento-acordeon';
+
+                    // Encabezado
+                    const encabezado = document.createElement('div');
+                    encabezado.className = 'encabezado-acordeon';
+                    
+                    const textoDiv = document.createElement('div');
+                    textoDiv.className = 'texto-encabezado';
+                    const titulo = document.createElement('h3');
+                    titulo.textContent = frase.espanol;
+                    const parrafo = document.createElement('p');
+                    parrafo.textContent = frase.ingles;
+                    textoDiv.appendChild(titulo);
+                    textoDiv.appendChild(parrafo);
+
+                    // Botón Audio
+                    const botonAudio = document.createElement('button');
+                    botonAudio.className = 'boton-audio';
+                    botonAudio.innerHTML = '🔊 Escuchar';
+                    botonAudio.type = 'button';
+                    
+                    botonAudio.addEventListener('click', function(e) {
+                        e.stopPropagation(); // Evita que se abra/cierre el acordeón al pulsar escuchar
+                        if ('speechSynthesis' in window) {
+                            const utterance = new SpeechSynthesisUtterance(frase.ingles);
+                            utterance.lang = 'en-US';
+                            window.speechSynthesis.cancel();
+                            window.speechSynthesis.speak(utterance);
+                        } else {
+                            alert('Tu navegador no soporta lectura de voz.');
+                        }
+                    });
+
+                    const iconoFlecha = document.createElement('span');
+                    iconoFlecha.className = 'icono-acordeon';
+                    iconoFlecha.textContent = '▼';
+
+                    encabezado.appendChild(textoDiv);
+                    encabezado.appendChild(botonAudio);
+                    encabezado.appendChild(iconoFlecha);
+
+                    // Contenido Inferior Desplegable
+                    const contenido = document.createElement('div');
+                    contenido.className = 'contenido-acordeon';
+                    
+                    const bloque = document.createElement('div');
+                    bloque.className = 'bloque-traduccion';
+                    bloque.innerHTML = `
+                        <div class="linea-traduccion">
+                            <span class="etiqueta-idioma">🇪🇸 Español:</span><span>${frase.espanol}</span>
+                        </div>
+                        <div class="linea-traduccion">
+                            <span class="etiqueta-idioma">🇬🇧 English:</span><span>${frase.ingles}</span>
+                        </div>
+                        <div class="linea-traduccion">
+                            <span class="etiqueta-idioma">🗣️ Pronunciación:</span><span class="pronunciacion">${frase.pronunciacion}</span>
+                        </div>
+                    `;
+                    contenido.appendChild(bloque);
+
+                    // Lógica para abrir/cerrar
+                    encabezado.addEventListener('click', function() {
+                        const estaActivo = articulo.classList.contains('activo');
+                        // Cerrar todos antes de abrir el nuevo
+                        document.querySelectorAll('.elemento-acordeon').forEach(function(el) {
+                            el.classList.remove('activo');
+                        });
+                        
+                        if (!estaActivo) {
+                            articulo.classList.add('activo');
+                        }
+                    });
+
+                    articulo.appendChild(encabezado);
+                    articulo.appendChild(contenido);
+                    contenedorFrases.appendChild(articulo);
+                });
+            }
+
+            // ==========================================
+            // 2. LÓGICA DEL RELOJ ANALÓGICO Y DIGITAL
+            // ==========================================
+            const canvas = document.getElementById('lienzoReloj');
+            let ctx = null;
+            let radio = 100;
+            let centroX = 100;
+            let centroY = 100;
+
+            if (canvas) {
+                ctx = canvas.getContext('2d');
+                radio = canvas.width / 2;
+                centroX = radio;
+                centroY = radio;
+                setInterval(actualizarReloj, 1000);
+                actualizarReloj();
+            }
+
+            function obtenerFraseHora(horas, minutos) {
+                let hora12 = horas % 12;
+                hora12 = hora12 === 0 ? 12 : hora12;
+                const siguienteHora = hora12 === 12 ? 1 : hora12 + 1;
+
+                if (minutos === 0) return `It's ${hora12} o'clock`;
+                if (minutos === 15) return `It's a quarter past ${hora12}`;
+                if (minutos === 30) return `It's half past ${hora12}`;
+                if (minutos === 45) return `It's a quarter to ${siguienteHora}`;
+                
+                if (minutos < 30) {
+                    if (minutos === 5) return `It's five past ${hora12}`;
+                    if (minutos === 10) return `It's ten past ${hora12}`;
+                    if (minutos === 20) return `It's twenty past ${hora12}`;
+                    if (minutos === 25) return `It's twenty-five past ${hora12}`;
+                    return `It's ${minutos} past ${hora12}`;
+                } else {
+                    const restantes = 60 - minutos;
+                    if (restantes === 5) return `It's five to ${siguienteHora}`;
+                    if (restantes === 10) return `It's ten to ${siguienteHora}`;
+                    if (restantes === 20) return `It's twenty to ${siguienteHora}`;
+                    if (restantes === 25) return `It's twenty-five to ${siguienteHora}`;
+                    return `It's ${restantes} to ${siguienteHora}`;
+                }
+            }
+
+            function dibujarManecilla(ctx, angulo, longitud, ancho, color) {
+                ctx.beginPath();
+                ctx.moveTo(centroX, centroY);
+                ctx.lineTo(centroX + longitud * Math.cos(angulo), centroY + longitud * Math.sin(angulo));
+                ctx.lineWidth = ancho;
+                ctx.lineCap = 'round';
+                ctx.strokeStyle = color;
+                ctx.stroke();
+            }
+
+            function actualizarReloj() {
+                if (!ctx) return;
+                const ahora = new Date();
+                const horas = ahora.getHours();
+                const minutos = ahora.getMinutes();
+                const segundos = ahora.getSeconds();
+
+                // Actualizar textos HTML
+                const elDigital = document.getElementById('relojDigital');
+                const elFrase = document.getElementById('fraseHora');
+                if(elDigital) elDigital.textContent = `${horas.toString().padStart(2, '0')}:${minutos.toString().padStart(2, '0')}:${segundos.toString().padStart(2, '0')}`;
+                if(elFrase) elFrase.textContent = obtenerFraseHora(horas, minutos);
+
+                // Colores detectados en CSS para pintar
+                const estilos = getComputedStyle(document.documentElement);
+                const colCara = estilos.getPropertyValue('--cara-reloj').trim() || '#e2e8f0';
+                const colMarca = estilos.getPropertyValue('--texto-principal').trim() || '#0f172a';
+                const colManecilla = estilos.getPropertyValue('--manecilla-reloj').trim() || '#1e293b';
+                const colCentro = estilos.getPropertyValue('--centro-reloj').trim() || '#ef4444';
+
+                // Dibujar el fondo
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                ctx.beginPath();
+                ctx.arc(centroX, centroY, radio - 2, 0, 2 * Math.PI);
+                ctx.fillStyle = colCara;
+                ctx.fill();
+
+                // Marcas de los números
+                for (let i = 1; i <= 12; i++) {
+                    const a = i * Math.PI * 2 / 12 - Math.PI / 2;
+                    ctx.beginPath();
+                    ctx.moveTo(centroX + (radio - 12) * Math.cos(a), centroY + (radio - 12) * Math.sin(a));
+                    ctx.lineTo(centroX + radio * Math.cos(a), centroY + radio * Math.sin(a));
+                    ctx.lineWidth = 2.5;
+                    ctx.strokeStyle = colMarca;
+                    ctx.stroke();
+                }
+
+                // Posición de manecillas
+                const angHoras = ((horas % 12) + minutos / 60) * (Math.PI * 2 / 12) - Math.PI / 2;
+                const angMin = (minutos + segundos / 60) * (Math.PI * 2 / 60) - Math.PI / 2;
+                const angSeg = segundos * (Math.PI * 2 / 60) - Math.PI / 2;
+
+                dibujarManecilla(ctx, angHoras, radio * 0.5, 6, colManecilla);
+                dibujarManecilla(ctx, angMin, radio * 0.7, 4, colManecilla);
+                dibujarManecilla(ctx, angSeg, radio * 0.8, 2, colCentro);
+
+                // Punto central
+                ctx.beginPath();
+                ctx.arc(centroX, centroY, 5, 0, 2 * Math.PI);
+                ctx.fillStyle = colCentro;
+                ctx.fill();
+            }
+
+            // ==========================================
+            // 3. MENÚ DE NAVEGACIÓN Y HAMBURGUESA
+            // ==========================================
+            const btnHamburguesa = document.getElementById('btnHamburguesa');
+            const menuLateral = document.getElementById('menuLateral');
+            const overlayMenu = document.getElementById('overlayMenu');
+            const cerrarBtn = document.getElementById('cerrarMenuBtn');
+            
+            function cerrarMenuLateral() {
+                if(menuLateral) menuLateral.classList.remove('abierto');
+                if(overlayMenu) overlayMenu.classList.remove('visible');
+            }
+            
+            if(btnHamburguesa) {
+                btnHamburguesa.addEventListener('click', function() {
+                    menuLateral.classList.add('abierto');
+                    overlayMenu.classList.add('visible');
+                });
+            }
+            if(cerrarBtn) cerrarBtn.addEventListener('click', cerrarMenuLateral);
+            if(overlayMenu) overlayMenu.addEventListener('click', cerrarMenuLateral);
+
+            // ==========================================
+            // 4. CAMBIO DE TEMA Y LOCALSTORAGE (Sincronización Botón)
+            // ==========================================
+            try {
+                const elementoRaiz = document.documentElement;
+                const botonTema = document.getElementById('botonTema');
+                const textoTema = document.getElementById('textoTema');
+                
+                // Función para aplicar tema al hacer click
+                function setTema(tema) {
+                    elementoRaiz.setAttribute('data-tema', tema);
+                    if(textoTema) textoTema.textContent = tema === 'claro' ? 'Modo Claro' : 'Modo Oscuro';
+                    localStorage.setItem('gas-tema', tema);
+                    if (typeof actualizarReloj === 'function') actualizarReloj();
+                }
+
+                // Evento click del botón
+                if(botonTema) {
+                    botonTema.addEventListener('click', function() {
+                        const actual = elementoRaiz.getAttribute('data-tema');
+                        setTema(actual === 'claro' ? 'oscuro' : 'claro');
+                    });
+                }
+                
+                // Sincronizar el texto del botón al cargar basado en lo que aplicó el script del <head>
+                const temaActual = elementoRaiz.getAttribute('data-tema');
+                if(textoTema) {
+                    textoTema.textContent = temaActual === 'claro' ? 'Modo Claro' : 'Modo Oscuro';
+                }
+                
+            } catch (err) {
+                console.warn("Se ha bloqueado el acceso a LocalStorage.");
+            }
+
+        })();
+    </script>
+</body>
+</html>

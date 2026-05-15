@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="es" data-tema="claro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="description" content="Conoce GasServicios: más de 20 años de experiencia en instalaciones de gas, certificaciones ISO y compromiso con la seguridad energética.">
+    <meta name="keywords" content="nosotros, empresa gas, experiencia, certificaciones, seguridad gas">
+    <title>GasServicios | Sobre Nosotros · Experiencia y seguridad</title>
+   
+
+        <link rel="stylesheet" href="./css/estilos.css">
+</head>
+<body>
+    <div class="contenedor-web">
+        <header class="cabecera">
+            <div class="cabecera-interna">
+                <a href="index.html" class="logo-enlace" id="logo-principal">
+                    <div class="logo-icono" aria-hidden="true">
+                        <svg viewBox="0 0 24 24"><path d="M12 2C8.5 2 6 4.5 6 8c0 2.5 1.5 4.5 3 6.5 1 1.5 2 3 2 5.5 0-2.5 1-4 2-5.5 1.5-2 3-4 3-6.5 0-3.5-2.5-6-6-6z"/><circle cx="12" cy="8" r="2"/></svg>
+                    </div>
+                    <div class="texto-logo"><h1>GasServicios</h1><p>energía segura · 24h</p></div>
+                </a>
+                <div class="nav-escritorio">
+                    <ul class="lista-nav">
+                        <li><a href="index.html" class="enlace-nav">Inicio</a></li>
+                        <li><a href="nosotros.html" class="enlace-nav activo">Nosotros</a></li>
+                        <li><a href="servicios.html" class="enlace-nav">Servicios</a></li>
+                        <li><a href="portfolio.html" class="enlace-nav">Portfolio</a></li>
+                        <li><a href="blog.html" class="enlace-nav">Blog</a></li>
+                        <li><a href="contacto.html" class="enlace-nav">Contacto</a></li>
+                    </ul>
+                </div>
+                <div class="controles">
+                    <button class="boton-tema" id="botonTema" aria-label="Modo oscuro/claro">
+                        <svg class="icono-luna" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
+                        <svg class="icono-sol" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+                        <span id="textoTema">Modo Claro</span>
+                    </button>
+                    <button class="boton-hamburguesa" id="btnHamburguesa" aria-label="Menú">
+                        <span class="linea-ham"></span><span class="linea-ham"></span><span class="linea-ham"></span>
+                    </button>
+                </div>
+            </div>
+        </header>
+
+        <div class="overlay-menu" id="overlayMenu"></div>
+        <div class="menu-lateral" id="menuLateral">
+            <button class="boton-cerrar" id="cerrarMenuBtn" aria-label="Cerrar menú">✕</button>
+            <ul class="lista-menu-lateral">
+                <li><a href="index.html" class="enlace-menu-movil">🏠 Inicio</a></li>
+                <li><a href="nosotros.html" class="enlace-menu-movil activo">👥 Nosotros</a></li>
+                <li><a href="servicios.html" class="enlace-menu-movil">🔧 Servicios</a></li>
+                <li><a href="portfolio.html" class="enlace-menu-movil">📁 Portfolio</a></li>
+                <li><a href="blog.html" class="enlace-menu-movil">📰 Blog</a></li>
+                <li><a href="contacto.html" class="enlace-menu-movil">📞 Contacto</a></li>
+            </ul>
+            <div style="margin-top: auto; padding-top: 1rem;"></div>
+        </div>
+
+        <main>
+            <div class="hero-nosotros">
+                <h1>Más de 20 años<br>garantizando tu seguridad</h1>
+                <p style="font-size: 1.2rem; max-width: 700px; margin: 0 auto;">Somos un equipo apasionado por la energía segura, con certificaciones internacionales y un compromiso firme con el medio ambiente.</p>
+            </div>
+
+            <div class="grid-valores">
+                <div class="tarjeta-valor">
+                    <div class="icono-grande">🛡️</div>
+                    <h3>Seguridad ante todo</h3>
+                    <p>Protocolos estrictos y tecnología de detección de fugas para garantizar la máxima protección.</p>
+                </div>
+                <div class="tarjeta-valor">
+                    <div class="icono-grande">📜</div>
+                    <h3>Certificaciones oficiales</h3>
+                    <p>ISO 9001, ISO 14001 y habilitación profesional para instalaciones de gas de alta y baja presión.</p>
+                </div>
+                <div class="tarjeta-valor">
+                    <div class="icono-grande">🌱</div>
+                    <h3>Compromiso ambiental</h3>
+                    <p>Impulsamos el gas renovable y soluciones energéticas eficientes que reducen la huella de carbono.</p>
+                </div>
+                <div class="tarjeta-valor">
+                    <div class="icono-grande">⚡</div>
+                    <h3>Emergencias 24/7</h3>
+                    <p>Flota propia y técnicos localizables las 24 horas, los 365 días del año.</p>
+                </div>
+            </div>
+
+            <div class="cronologia">
+                <h2>Nuestra trayectoria</h2>
+                <div class="lista-hitos">
+                    <div class="hito"><span class="hito-ano">2002</span><span>Fundación como taller familiar especializado en reparaciones de gas.</span></div>
+                    <div class="hito"><span class="hito-ano">2008</span><span>Primera certificación ISO 9001 en gestión de calidad.</span></div>
+                    <div class="hito"><span class="hito-ano">2015</span><span>Apertura de delegación en Barcelona y expansión a nivel nacional.</span></div>
+                    <div class="hito"><span class="hito-ano">2020</span><span>Lanzamiento de la división de energías renovables: biogás e hidrógeno verde.</span></div>
+                    <div class="hito"><span class="hito-ano">2025</span><span>Más de 5000 instalaciones seguras y +98% de satisfacción.</span></div>
+                </div>
+            </div>
+
+            <div style="background: var(--fondo-tarjeta); border-radius: var(--radio-lg); padding: 2rem; margin-top: 1rem; border: 1px solid var(--borde-suave); text-align: center;">
+                <h2 style="color: var(--primario); margin-bottom: 1rem;">Equipo humano y profesional</h2>
+                <p style="max-width: 800px; margin: 0 auto;">Contamos con más de 50 técnicos especializados, ingenieros y personal de atención al cliente. La formación continua es nuestra seña de identidad.</p>
+                <div style="display: flex; justify-content: center; gap: 2rem; margin-top: 2rem; flex-wrap: wrap;">
+                    <div><strong>+5000</strong><br>proyectos realizados</div>
+                    <div><strong>99%</strong><br>clientes recomiendan</div>
+                    <div><strong>24h</strong><br>tiempo medio respuesta</div>
+                </div>
+            </div>
+
+            <section class="seccion-verbos-container">
+                <h2 style="color: var(--primario); font-size: 2.2rem; text-align: center; margin-bottom: 0.5rem;">Iniciativa de Formación: Inglés Técnico</h2>
+                <p style="text-align: center; color: var(--texto-secundario); margin-bottom: 2.5rem; max-width: 700px; margin-left: auto; margin-right: auto;">Módulo de práctica de verbos en inglés para potenciar el perfil internacional de nuestros técnicos y personal de GasServicios.</p>
+
+                <div class="panel-herramientas">
+                    <div class="grupo-filtro">
+                        <label for="buscadorVerbo">🔍 FILTRAR VERBO (inglés o español)</label>
+                        <input type="text" id="buscadorVerbo" placeholder="Ej: be, go, understand, ser, tener..." autocomplete="off" aria-label="Buscar verbo por nombre o significado">
+                    </div>
+                    <div class="grupo-velocidad">
+                        <label for="controlVelocidad">🎤 VELOCIDAD DE VOZ (pronunciación)</label>
+                        <div class="control-velocidad">
+                            <input type="range" id="controlVelocidad" min="0.4" max="1.2" step="0.05" value="0.85" aria-label="Ajustar velocidad de pronunciación">
+                            <span class="valor-velocidad" id="mostrarVelocidad" aria-live="polite">0.85x</span>
+                        </div>
+                    </div>
+                    <div class="contador-verbos" id="contadorVerbos" aria-live="polite">65 verbos</div>
+                </div>
+
+                <div class="grilla-verbos" id="contenedorVerbos" role="list" aria-label="Lista de verbos en inglés"></div>
+
+                <div class="seccion-pasado">
+                    <h2>📖 30 Frases en Past Simple (Práctica de Uso)</h2>
+                    <div class="subtitulo-frases" role="tablist" aria-label="Categorías de frases">
+                        <span class="chip-categoria chip-afirmativo" role="tab" aria-selected="true">✅ 20 Afirmativas</span>
+                        <span class="chip-categoria chip-negativo" role="tab">❌ 5 Negativas</span>
+                        <span class="chip-categoria chip-interrogativo" role="tab">❓ 5 Interrogativas</span>
+                    </div>
+                    <div class="grilla-frases" id="contenedorFrases" role="list" aria-label="Frases de práctica en pasado simple"></div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <footer class="pie-pagina">
+        <div class="contenedor-web">
+            <div class="footer-grid">
+                <div class="bloque-footer">
+                    <h4>GasServicios</h4>
+                    <p style="margin-bottom: 0.6rem; color: var(--footer-texto-secundario);">Seguridad energética con excelencia. +20 años garantizando tranquilidad.</p>
+                    <div class="social-icons">
+                        <a href="#" aria-label="Facebook">📘</a>
+                        <a href="#" aria-label="Twitter">🐦</a>
+                        <a href="#" aria-label="Instagram">📸</a>
+                        <a href="#" aria-label="LinkedIn">🔗</a>
+                    </div>
+                </div>
+                <div class="bloque-footer">
+                    <h4>Enlaces</h4>
+                    <a href="index.html">Inicio</a>
+                    <a href="nosotros.html">Nosotros</a>
+                    <a href="servicios.html">Servicios</a>
+                    <a href="portfolio.html">Portfolio</a>
+                    <a href="blog.html">Blog</a>
+                    <a href="contacto.html">Contacto</a>
+                </div>
+                <div class="bloque-footer">
+                    <h4>Servicios</h4>
+                    <a href="servicios.html">Instalaciones de gas</a>
+                    <a href="servicios.html">Mantenimiento preventivo</a>
+                    <a href="servicios.html">Certificaciones oficiales</a>
+                    <a href="servicios.html">Emergencias 24/7</a>
+                </div>
+                <div class="bloque-footer">
+                    <h4>Contacto</h4>
+                    <div class="contacto-item"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg><span>+34 900 123 456</span></div>
+                    <div class="contacto-item"><svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22 6 12 13 2 6"/></svg><span>info@gasservicios.es</span></div>
+                </div>
+                <div class="bloque-footer">
+                    <h4>Legal</h4>
+                    <a href="#">Política de Privacidad</a>
+                    <a href="#">Política de Cookies</a>
+                    <a href="#">Aviso Legal</a>
+                    <a href="#">Declaración de Accesibilidad</a>
+                </div>
+                <div class="bloque-footer">
+                    <h4>Información</h4>
+                    <a href="#">Preguntas frecuentes</a>
+                    <a href="#">Trabaja con nosotros</a>
+                    <a href="#">Mapa del sitio</a>
+                </div>
+            </div>
+
+            <section class="seccion-newsletter">
+                <div class="contenedor-newsletter">
+                    <h3 class="titulo-newsletter">Suscríbete a nuestro boletín</h3>
+                    <p class="descripcion-newsletter">Recibe consejos de seguridad y novedades del sector.</p>
+                    <form id="footerNewsletterForm" class="formulario-newsletter">
+                        <label for="newsEmail" class="solo-lectura">Correo electrónico</label>
+                        <input type="email" id="newsEmail" placeholder="tu@email.com" required>
+                        <button type="submit">Suscribirme</button>
+                    </form>
+                </div>
+            </section>
+
+            <div class="copyright">
+                <p>&copy; <span id="year"></span> GasServicios · Todos los derechos reservados · Instalador autorizado</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        (function() {
+            // ==========================================
+            // LÓGICA CORE DE GASSERVICIOS
+            // ==========================================
+            const botonTema = document.getElementById('botonTema');
+            const textoTema = document.getElementById('textoTema');
+            const btnHamburguesa = document.getElementById('btnHamburguesa');
+            const menuLateral = document.getElementById('menuLateral');
+            const overlayMenu = document.getElementById('overlayMenu');
+            const cerrarBtn = document.getElementById('cerrarMenuBtn');
+            const footerForm = document.getElementById('footerNewsletterForm');
+            
+            function cerrarMenuLateral() {
+                if(menuLateral && overlayMenu && btnHamburguesa) {
+                    menuLateral.classList.remove('abierto');
+                    overlayMenu.classList.remove('visible');
+                    document.body.style.overflow = '';
+                    btnHamburguesa.setAttribute('aria-expanded', 'false');
+                }
+            }
+            function abrirMenu() {
+                menuLateral.classList.add('abierto');
+                overlayMenu.classList.add('visible');
+                document.body.style.overflow = 'hidden';
+                btnHamburguesa.setAttribute('aria-expanded', 'true');
+            }
+            if(btnHamburguesa) btnHamburguesa.addEventListener('click', abrirMenu);
+            if(cerrarBtn) cerrarBtn.addEventListener('click', cerrarMenuLateral);
+            if(overlayMenu) overlayMenu.addEventListener('click', cerrarMenuLateral);
+            
+            function setTema(tema) {
+                document.documentElement.setAttribute('data-tema', tema);
+                if(textoTema) textoTema.textContent = tema === 'claro' ? 'Modo Claro' : 'Modo Oscuro';
+                localStorage.setItem('gas-tema', tema);
+            }
+            function toggleTema() {
+                const actual = document.documentElement.getAttribute('data-tema');
+                setTema(actual === 'claro' ? 'oscuro' : 'claro');
+            }
+            if(botonTema) botonTema.addEventListener('click', toggleTema);
+            
+            const temaGuardado = localStorage.getItem('gas-tema');
+            if(temaGuardado && (temaGuardado === 'claro' || temaGuardado === 'oscuro')) {
+                setTema(temaGuardado);
+            } else if(window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                setTema('oscuro');
+            } else {
+                setTema('claro');
+            }
+            
+            document.getElementById('year') && (document.getElementById('year').textContent = new Date().getFullYear());
+            
+            if(footerForm) {
+                footerForm.addEventListener('submit', (e) => {
+                    e.preventDefault();
+                    const input = document.getElementById('newsEmail');
+                    if(input.value.trim() && input.value.includes('@')) {
+                        alert(`✅ Suscripción exitosa: ${input.value}`);
+                        input.value = '';
+                    } else alert('Correo inválido');
+                });
+            }
+
+            // ==========================================
+            // LÓGICA DEL MÓDULO DE VERBOS (Integrado)
+            // ==========================================
+            const listaVerbosa = [
+                { tipo: "regular", nombre: "Accept", significado: "Aceptar", presenteSimple: "accept/accepts", presenteCont: "accepting", participioPasado: "accepted", pasadoSimple: "accepted", pasadoCont: "was accepting", pasadoPerfecto: "had accepted", futuroSimple: "will accept", futuroPerfecto: "will have accepted" },
+                { tipo: "regular", nombre: "Achieve", significado: "Lograr", presenteSimple: "achieve/achieves", presenteCont: "achieving", participioPasado: "achieved", pasadoSimple: "achieved", pasadoCont: "was achieving", pasadoPerfecto: "had achieved", futuroSimple: "will achieve", futuroPerfecto: "will have accepted" },
+                { tipo: "regular", nombre: "Answer", significado: "Responder", presenteSimple: "answer/answers", presenteCont: "answering", participioPasado: "answered", pasadoSimple: "answered", pasadoCont: "was answering", pasadoPerfecto: "had answered", futuroSimple: "will answer", futuroPerfecto: "will have answered" },
+                { tipo: "regular", nombre: "Ask", significado: "Preguntar", presenteSimple: "ask/asks", presenteCont: "asking", participioPasado: "asked", pasadoSimple: "asked", pasadoCont: "was asking", pasadoPerfecto: "had asked", futuroSimple: "will ask", futuroPerfecto: "will have asked" },
+                { tipo: "irregular", nombre: "Be", significado: "Ser/Estar", presenteSimple: "am/is/are", presenteCont: "being", participioPasado: "been", pasadoSimple: "was/were", pasadoCont: "was being", pasadoPerfecto: "had been", futuroSimple: "will be", futuroPerfecto: "will have been" },
+                { tipo: "irregular", nombre: "Begin", significado: "Empezar", presenteSimple: "begin/begins", presenteCont: "beginning", participioPasado: "begun", pasadoSimple: "began", pasadoCont: "was beginning", pasadoPerfecto: "had begun", futuroSimple: "will begin", futuroPerfecto: "will have begun" },
+                { tipo: "irregular", nombre: "Break", significado: "Romper", presenteSimple: "break/breaks", presenteCont: "breaking", participioPasado: "broken", pasadoSimple: "broke", pasadoCont: "was breaking", pasadoPerfecto: "had broken", futuroSimple: "will break", futuroPerfecto: "will have broken" },
+                { tipo: "irregular", nombre: "Bring", significado: "Traer", presenteSimple: "bring/brings", presenteCont: "bringing", participioPasado: "brought", pasadoSimple: "brought", pasadoCont: "was bringing", pasadoPerfecto: "had brought", futuroSimple: "will bring", futuroPerfecto: "will have brought" },
+                { tipo: "irregular", nombre: "Build", significado: "Construir", presenteSimple: "build/builds", presenteCont: "building", participioPasado: "built", pasadoSimple: "built", pasadoCont: "was building", pasadoPerfecto: "had built", futuroSimple: "will build", futuroPerfecto: "will have built" },
+                { tipo: "irregular", nombre: "Buy", significado: "Comprar", presenteSimple: "buy/buys", presenteCont: "buying", participioPasado: "bought", pasadoSimple: "bought", pasadoCont: "was buying", pasadoPerfecto: "had bought", futuroSimple: "will buy", futuroPerfecto: "will have bought" },
+                { tipo: "regular", nombre: "Call", significado: "Llamar", presenteSimple: "call/calls", presenteCont: "calling", participioPasado: "called", pasadoSimple: "called", pasadoCont: "was calling", pasadoPerfecto: "had called", futuroSimple: "will call", futuroPerfecto: "will have called" },
+                { tipo: "irregular", nombre: "Can", significado: "Poder", presenteSimple: "can", presenteCont: "---", participioPasado: "---", pasadoSimple: "could", pasadoCont: "---", pasadoPerfecto: "---", futuroSimple: "will be able to", futuroPerfecto: "will have been able to" },
+                { tipo: "regular", nombre: "Change", significado: "Cambiar", presenteSimple: "change/changes", presenteCont: "changing", participioPasado: "changed", pasadoSimple: "changed", pasadoCont: "was changing", pasadoPerfecto: "had changed", futuroSimple: "will change", futuroPerfecto: "will have changed" },
+                { tipo: "irregular", nombre: "Choose", significado: "Elegir", presenteSimple: "choose/chooses", presenteCont: "choosing", participioPasado: "chosen", pasadoSimple: "chose", pasadoCont: "was choosing", pasadoPerfecto: "had chosen", futuroSimple: "will choose", futuroPerfecto: "will have changed" },
+                { tipo: "irregular", nombre: "Come", significado: "Venir", presenteSimple: "come/comes", presenteCont: "coming", participioPasado: "come", pasadoSimple: "came", pasadoCont: "was coming", pasadoPerfecto: "had come", futuroSimple: "will come", futuroPerfecto: "will have come" },
+                { tipo: "regular", nombre: "Create", significado: "Crear", presenteSimple: "create/creates", presenteCont: "creating", participioPasado: "created", pasadoSimple: "created", pasadoCont: "was creating", pasadoPerfecto: "had created", futuroSimple: "will create", futuroPerfecto: "will have created" },
+                { tipo: "irregular", nombre: "Cut", significado: "Cortar", presenteSimple: "cut/cuts", presenteCont: "cutting", participioPasado: "cut", pasadoSimple: "cut", pasadoCont: "was cutting", pasadoPerfecto: "had cut", futuroSimple: "will cut", futuroPerfecto: "will have cut" },
+                { tipo: "irregular", nombre: "Do", significado: "Hacer", presenteSimple: "do/does", presenteCont: "doing", participioPasado: "done", pasadoSimple: "did", pasadoCont: "was doing", pasadoPerfecto: "had done", futuroSimple: "will do", futuroPerfecto: "will have done" },
+                { tipo: "irregular", nombre: "Draw", significado: "Dibujar", presenteSimple: "draw/draws", presenteCont: "drawing", participioPasado: "drawn", pasadoSimple: "drew", pasadoCont: "was drawing", pasadoPerfecto: "had drawn", futuroSimple: "will draw", futuroPerfecto: "will have drawn" },
+                { tipo: "irregular", nombre: "Dream", significado: "Soñar", presenteSimple: "dream/dreams", presenteCont: "dreaming", participioPasado: "dreamed/dreamt", pasadoSimple: "dreamed/dreamt", pasadoCont: "was dreaming", pasadoPerfecto: "had dreamed", futuroSimple: "will dream", futuroPerfecto: "will have dreamed" },
+                { tipo: "irregular", nombre: "Drink", significado: "Beber", presenteSimple: "drink/drinks", presenteCont: "drinking", participioPasado: "drunk", pasadoSimple: "drank", pasadoCont: "was drinking", pasadoPerfecto: "had drunk", futuroSimple: "will drink", futuroPerfecto: "will have drunk" },
+                { tipo: "irregular", nombre: "Drive", significado: "Conducir", presenteSimple: "drive/drives", presenteCont: "driving", participioPasado: "driven", pasadoSimple: "drove", pasadoCont: "was driving", pasadoPerfecto: "had driven", futuroSimple: "will drive", futuroPerfecto: "will have driven" },
+                { tipo: "irregular", nombre: "Eat", significado: "Comer", presenteSimple: "eat/eats", presenteCont: "eating", participioPasado: "eaten", pasadoSimple: "ate", pasadoCont: "was eating", pasadoPerfecto: "had eaten", futuroSimple: "will eat", futuroPerfecto: "will have eaten" },
+                { tipo: "irregular", nombre: "Fall", significado: "Caer", presenteSimple: "fall/falls", presenteCont: "falling", participioPasado: "fallen", pasadoSimple: "fell", pasadoCont: "was falling", pasadoPerfecto: "had fallen", futuroSimple: "will fall", futuroPerfecto: "will have fallen" },
+                { tipo: "irregular", nombre: "Feel", significado: "Sentir", presenteSimple: "feel/feels", presenteCont: "feeling", participioPasado: "felt", pasadoSimple: "felt", pasadoCont: "was feeling", pasadoPerfecto: "had felt", futuroSimple: "will feel", futuroPerfecto: "will have felt" },
+                { tipo: "irregular", nombre: "Find", significado: "Encontrar", presenteSimple: "find/finds", presenteCont: "finding", participioPasado: "found", pasadoSimple: "found", pasadoCont: "was finding", pasadoPerfecto: "had found", futuroSimple: "will find", futuroPerfecto: "will have found" },
+                { tipo: "irregular", nombre: "Fly", significado: "Volar", presenteSimple: "fly/flies", presenteCont: "flying", participioPasado: "flown", pasadoSimple: "flew", pasadoCont: "was flying", pasadoPerfecto: "had flown", futuroSimple: "will fly", futuroPerfecto: "will have flown" },
+                { tipo: "irregular", nombre: "Forget", significado: "Olvidar", presenteSimple: "forget/forgets", presenteCont: "forgetting", participioPasado: "forgotten", pasadoSimple: "forgot", pasadoCont: "was forgetting", pasadoPerfecto: "had forgotten", futuroSimple: "will forget", futuroPerfecto: "will have forgotten" },
+                { tipo: "irregular", nombre: "Get", significado: "Conseguir", presenteSimple: "get/gets", presenteCont: "getting", participioPasado: "got/gotten", pasadoSimple: "got", pasadoCont: "was getting", pasadoPerfecto: "had got", futuroSimple: "will get", futuroPerfecto: "will have got" },
+                { tipo: "irregular", nombre: "Give", significado: "Dar", presenteSimple: "give/gives", presenteCont: "giving", participioPasado: "given", pasadoSimple: "gave", pasadoCont: "was giving", pasadoPerfecto: "had given", futuroSimple: "will give", futuroPerfecto: "will have given" },
+                { tipo: "irregular", nombre: "Go", significado: "Ir", presenteSimple: "go/goes", presenteCont: "going", participioPasado: "gone", pasadoSimple: "went", pasadoCont: "was going", pasadoPerfecto: "had gone", futuroSimple: "will go", futuroPerfecto: "will have gone" },
+                { tipo: "irregular", nombre: "Grow", significado: "Crecer", presenteSimple: "grow/grows", presenteCont: "growing", participioPasado: "grown", pasadoSimple: "grew", pasadoCont: "was growing", pasadoPerfecto: "had grown", futuroSimple: "will grow", futuroPerfecto: "will have grown" },
+                { tipo: "irregular", nombre: "Have", significado: "Tener", presenteSimple: "have/has", presenteCont: "having", participioPasado: "had", pasadoSimple: "had", pasadoCont: "was having", pasadoPerfecto: "had had", futuroSimple: "will have", futuroPerfecto: "will have had" },
+                { tipo: "irregular", nombre: "Hear", significado: "Oír", presenteSimple: "hear/hears", presenteCont: "hearing", participioPasado: "heard", pasadoSimple: "heard", pasadoCont: "was hearing", pasadoPerfecto: "had heard", futuroSimple: "will hear", futuroPerfecto: "will have heard" },
+                { tipo: "regular", nombre: "Help", significado: "Ayudar", presenteSimple: "help/helps", presenteCont: "helping", participioPasado: "helped", pasadoSimple: "helped", pasadoCont: "was helping", pasadoPerfecto: "had helped", futuroSimple: "will help", futuroPerfecto: "will have helped" },
+                { tipo: "irregular", nombre: "Keep", significado: "Mantener", presenteSimple: "keep/keeps", presenteCont: "keeping", participioPasado: "kept", pasadoSimple: "kept", pasadoCont: "was keeping", pasadoPerfecto: "had kept", futuroSimple: "will keep", futuroPerfecto: "will have kept" },
+                { tipo: "irregular", nombre: "Know", significado: "Saber", presenteSimple: "know/knows", presenteCont: "knowing", participioPasado: "known", pasadoSimple: "knew", pasadoCont: "was knowing", pasadoPerfecto: "had known", futuroSimple: "will know", futuroPerfecto: "will have known" },
+                { tipo: "regular", nombre: "Learn", significado: "Aprender", presenteSimple: "learn/learns", presenteCont: "learning", participioPasado: "learned/learnt", pasadoSimple: "learned/learnt", pasadoCont: "was learning", pasadoPerfecto: "had learned", futuroSimple: "will learn", futuroPerfecto: "will have learned" },
+                { tipo: "irregular", nombre: "Leave", significado: "Dejar", presenteSimple: "leave/leaves", presenteCont: "leaving", participioPasado: "left", pasadoSimple: "left", pasadoCont: "was leaving", pasadoPerfecto: "had left", futuroSimple: "will leave", futuroPerfecto: "will have left" },
+                { tipo: "irregular", nombre: "Lose", significado: "Perder", presenteSimple: "lose/loses", presenteCont: "losing", participioPasado: "lost", pasadoSimple: "lost", pasadoCont: "was losing", pasadoPerfecto: "had lost", futuroSimple: "will lose", futuroPerfecto: "will have lost" },
+                { tipo: "irregular", nombre: "Make", significado: "Hacer", presenteSimple: "make/makes", presenteCont: "making", participioPasado: "made", pasadoSimple: "made", pasadoCont: "was making", pasadoPerfecto: "had made", futuroSimple: "will make", futuroPerfecto: "will have made" },
+                { tipo: "irregular", nombre: "Meet", significado: "Conocer", presenteSimple: "meet/meets", presenteCont: "meeting", participioPasado: "met", pasadoSimple: "met", pasadoCont: "was meeting", pasadoPerfecto: "had met", futuroSimple: "will meet", futuroPerfecto: "will have met" },
+                { tipo: "irregular", nombre: "Pay", significado: "Pagar", presenteSimple: "pay/pays", presenteCont: "paying", participioPasado: "paid", pasadoSimple: "paid", pasadoCont: "was paying", pasadoPerfecto: "had paid", futuroSimple: "will pay", futuroPerfecto: "will have paid" },
+                { tipo: "irregular", nombre: "Put", significado: "Poner", presenteSimple: "put/puts", presenteCont: "putting", participioPasado: "put", pasadoSimple: "put", pasadoCont: "was putting", pasadoPerfecto: "had put", futuroSimple: "will put", futuroPerfecto: "will have put" },
+                { tipo: "irregular", nombre: "Read", significado: "Leer", presenteSimple: "read/reads", presenteCont: "reading", participioPasado: "read", pasadoSimple: "read", pasadoCont: "was reading", pasadoPerfecto: "had read", futuroSimple: "will read", futuroPerfecto: "will have read" },
+                { tipo: "irregular", nombre: "Run", significado: "Correr", presenteSimple: "run/runs", presenteCont: "running", participioPasado: "run", pasadoSimple: "ran", pasadoCont: "was running", pasadoPerfecto: "had run", futuroSimple: "will run", futuroPerfecto: "will have run" },
+                { tipo: "irregular", nombre: "Say", significado: "Decir", presenteSimple: "say/says", presenteCont: "saying", participioPasado: "said", pasadoSimple: "said", pasadoCont: "was saying", pasadoPerfecto: "had said", futuroSimple: "will say", futuroPerfecto: "will have said" },
+                { tipo: "irregular", nombre: "See", significado: "Ver", presenteSimple: "see/sees", presenteCont: "seeing", participioPasado: "seen", pasadoSimple: "saw", pasadoCont: "was seeing", pasadoPerfecto: "had seen", futuroSimple: "will see", futuroPerfecto: "will have seen" },
+                { tipo: "irregular", nombre: "Sell", significado: "Vender", presenteSimple: "sell/sells", presenteCont: "selling", participioPasado: "sold", pasadoSimple: "sold", pasadoCont: "was selling", pasadoPerfecto: "had sold", futuroSimple: "will sell", futuroPerfecto: "will have sold" },
+                { tipo: "irregular", nombre: "Send", significado: "Enviar", presenteSimple: "send/sends", presenteCont: "sending", participioPasado: "sent", pasadoSimple: "sent", pasadoCont: "was sending", pasadoPerfecto: "had sent", futuroSimple: "will send", futuroPerfecto: "will have changed" },
+                { tipo: "regular", nombre: "Show", significado: "Mostrar", presenteSimple: "show/shows", presenteCont: "showing", participioPasado: "shown", pasadoSimple: "showed", pasadoCont: "was showing", pasadoPerfecto: "had shown", futuroSimple: "will show", futuroPerfecto: "will have shown" },
+                { tipo: "irregular", nombre: "Sing", significado: "Cantar", presenteSimple: "sing/sings", presenteCont: "singing", participioPasado: "sung", pasadoSimple: "sang", pasadoCont: "was singing", pasadoPerfecto: "had sung", futuroSimple: "will sing", futuroPerfecto: "will have sung" },
+                { tipo: "irregular", nombre: "Sit", significado: "Sentarse", presenteSimple: "sit/sits", presenteCont: "sitting", participioPasado: "sat", pasadoSimple: "sat", pasadoCont: "was sitting", pasadoPerfecto: "had sat", futuroSimple: "will sit", futuroPerfecto: "will have sat" },
+                { tipo: "irregular", nombre: "Sleep", significado: "Dormir", presenteSimple: "sleep/sleeps", presenteCont: "sleeping", participioPasado: "slept", pasadoSimple: "slept", pasadoCont: "was sleeping", pasadoPerfecto: "had slept", futuroSimple: "will sleep", futuroPerfecto: "will have slept" },
+                { tipo: "irregular", nombre: "Speak", significado: "Hablar", presenteSimple: "speak/speaks", presenteCont: "speaking", participioPasado: "spoken", pasadoSimple: "spoke", pasadoCont: "was speaking", pasadoPerfecto: "had spoken", futuroSimple: "will speak", futuroPerfecto: "will have spoken" },
+                { tipo: "irregular", nombre: "Take", significado: "Tomar", presenteSimple: "take/takes", presenteCont: "taking", participioPasado: "taken", pasadoSimple: "took", pasadoCont: "was taking", pasadoPerfecto: "had taken", futuroSimple: "will take", futuroPerfecto: "will have taken" },
+                { tipo: "irregular", nombre: "Teach", significado: "Enseñar", presenteSimple: "teach/teaches", presenteCont: "teaching", participioPasado: "taught", pasadoSimple: "taught", pasadoCont: "was teaching", pasadoPerfecto: "had taught", futuroSimple: "will teach", futuroPerfecto: "will have taught" },
+                { tipo: "irregular", nombre: "Tell", significado: "Contar", presenteSimple: "tell/tells", presenteCont: "telling", participioPasado: "told", pasadoSimple: "told", pasadoCont: "was telling", pasadoPerfecto: "had told", futuroSimple: "will tell", futuroPerfecto: "will have told" },
+                { tipo: "irregular", nombre: "Think", significado: "Pensar", presenteSimple: "think/thinks", presenteCont: "thinking", participioPasado: "thought", pasadoSimple: "thought", pasadoCont: "was thinking", pasadoPerfecto: "had thought", futuroSimple: "will think", futuroPerfecto: "will have thought" },
+                { tipo: "irregular", nombre: "Understand", significado: "Entender", presenteSimple: "understand/understands", presenteCont: "understanding", participioPasado: "understood", pasadoSimple: "understood", pasadoCont: "was understanding", pasadoPerfecto: "had understood", futuroSimple: "will understand", futuroPerfecto: "will have understood" },
+                { tipo: "regular", nombre: "Want", significado: "Querer", presenteSimple: "want/wants", presenteCont: "wanting", participioPasado: "wanted", pasadoSimple: "wanted", pasadoCont: "was wanting", pasadoPerfecto: "had wanted", futuroSimple: "will want", futuroPerfecto: "will have wanted" },
+                { tipo: "irregular", nombre: "Win", significado: "Ganar", presenteSimple: "win/wins", presenteCont: "winning", participioPasado: "won", pasadoSimple: "won", pasadoCont: "was winning", pasadoPerfecto: "had won", futuroSimple: "will win", futuroPerfecto: "will have won" },
+                { tipo: "irregular", nombre: "Write", significado: "Escribir", presenteSimple: "write/writes", presenteCont: "writing", participioPasado: "written", pasadoSimple: "wrote", pasadoCont: "was writing", pasadoPerfecto: "had written", futuroSimple: "will write", futuroPerfecto: "will have written" }
+            ];
+
+            const listaFrasesAfirmativas = [
+                { ingles: "I <strong>went</strong> to the supermarket yesterday.", pronunciacion: "ái guent tu de súupermárket iésterdei", espanol: "Fui al supermercado ayer." },
+                { ingles: "She <strong>bought</strong> a new car last month.", pronunciacion: "shi bót e niu kár last manz", espanol: "Ella compró un coche nuevo el mes pasado." },
+                { ingles: "They <strong>saw</strong> that movie last night.", pronunciacion: "dei só dat múvi last náit", espanol: "Ellos vieron esa película anoche." },
+                { ingles: "He <strong>wrote</strong> a beautiful poem for her.", pronunciacion: "ji róut e biútiful póuem for jer", espanol: "Él escribió un poema hermoso para ella." },
+                { ingles: "We <strong>ate</strong> at an Italian restaurant on Sunday.", pronunciacion: "wi éit at an italian réstorant on sándei", espanol: "Comimos en un restaurante italiano el domingo." },
+                { ingles: "I <strong>found</strong> my keys under the sofa.", pronunciacion: "ái fáund mai kíes ánder de sóufa", espanol: "Encontré mis llaves debajo del sofá." },
+                { ingles: "She <strong>took</strong> the train to London.", pronunciacion: "shi tuc de trein tu lóndon", espanol: "Ella tomó el tren a Londres." },
+                { ingles: "They <strong>built</strong> a new house in 2020.", pronunciacion: "dei bílt e niu jaus in tuenti tuenti", espanol: "Ellos construyeron una casa nueva en 2020." },
+                { ingles: "He <strong>began</strong> his career as a teacher.", pronunciacion: "ji bigán jis karír as e tícher", espanol: "Él comenzó su carrera como profesor." },
+                { ingles: "We <strong>drank</strong> coffee together yesterday.", pronunciacion: "wi drank kófi tugéder iésterdei", espanol: "Tomamos café juntos ayer." },
+                { ingles: "Maria <strong>spoke</strong> three languages when she was ten.", pronunciacion: "maría spóuk zri lénguiches uen shi wos ten", espanol: "María hablaba tres idiomas cuando tenía diez años." },
+                { ingles: "The children <strong>ran</strong> to the park.", pronunciacion: "de chíldren ran tu de park", espanol: "Los niños corrieron al parque." },
+                { ingles: "I <strong>met</strong> my best friend at university.", pronunciacion: "ái met mai best frend at university", espanol: "Conocí a mi mejor amigo en la universidad." },
+                { ingles: "She <strong>gave</strong> me a wonderful gift.", pronunciacion: "shi guéiv mi e wónderful gift", espanol: "Ella me dio un regalo maravilloso." },
+                { ingles: "They <strong>knew</strong> the answer immediately.", pronunciacion: "dei niu di ánser inmidiétli", espanol: "Ellos supieron la respuesta inmediatamente." },
+                { ingles: "We <strong>left</strong> the party early.", pronunciacion: "wi left de párti érli", espanol: "Nos fuimos de la fiesta temprano." },
+                { ingles: "John <strong>drove</strong> all the way to the coast.", pronunciacion: "yon dróu al de uei tu de kóust", espanol: "John condujo todo el camino hasta la costa." },
+                { ingles: "I <strong>sang</strong> a song at the karaoke.", pronunciacion: "ái sang e song at de karaóuki", espanol: "Canté una canción en el karaoke." },
+                { ingles: "She <strong>understood</strong> the lesson perfectly.", pronunciacion: "shi understúd de lésen pérfektli", espanol: "Ella entendió la lección perfectamente." },
+                { ingles: "They <strong>chose</strong> the red one.", pronunciacion: "dei chóus de red uan", espanol: "Ellos eligieron el rojo." }
+            ];
+
+            const listaFrasesNegativas = [
+                { ingles: "I <strong>didn't go</strong> to the party last night.", pronunciacion: "ái dídent gou tu de párty last náit", espanol: "No fui a la fiesta anoche." },
+                { ingles: "She <strong>didn't eat</strong> breakfast this morning.", pronunciacion: "shi dídent iit brékfast dis mórning", espanol: "Ella no desayunó esta mañana." },
+                { ingles: "They <strong>didn't see</strong> the accident.", pronunciacion: "dei dídent sii di áksident", espanol: "Ellos no vieron el accidente." },
+                { ingles: "He <strong>didn't buy</strong> anything at the mall.", pronunciacion: "ji dídent bai éniting at de mól", espanol: "Él no compró nada en el centro comercial." },
+                { ingles: "We <strong>didn't know</strong> the truth.", pronunciacion: "wi dídent nou de trut", espanol: "No supimos la verdad." }
+            ];
+
+            const listaFrasesInterrogativas = [
+                { ingles: "<strong>Did</strong> you <strong>see</strong> the movie?", pronunciacion: "did iu sii de múvi", espanol: "¿Viste la película?" },
+                { ingles: "<strong>Did</strong> she <strong>go</strong> to school yesterday?", pronunciacion: "did shi gou tu skúl iésterdei", espanol: "¿Ella fue a la escuela ayer?" },
+                { ingles: "<strong>Did</strong> they <strong>eat</strong> at that restaurant?", pronunciacion: "did dei iit at dat réstorant", espanol: "¿Comieron en ese restaurante?" },
+                { ingles: "<strong>Did</strong> he <strong>write</strong> the email?", pronunciacion: "did ji rait di imeil", espanol: "¿Él escribió el correo?" },
+                { ingles: "<strong>Did</strong> you <strong>find</strong> your wallet?", pronunciacion: "did iu fáind ior wólet", espanol: "¿Encontraste tu cartera?" }
+            ];
+
+            let velocidadActual = 0.85;
+            let filtroActual = "";
+
+            function hablarTexto(texto) {
+                if (!window.speechSynthesis) return;
+                window.speechSynthesis.cancel();
+                const utterance = new SpeechSynthesisUtterance(texto);
+                utterance.lang = 'en-US';
+                utterance.rate = velocidadActual;
+                utterance.volume = 1;
+                utterance.pitch = 1;
+                const voces = speechSynthesis.getVoices();
+                const vozIngles = voces.find(v => v.lang.includes('en') && (v.name.includes('Google') || v.name.includes('Natural') || v.name.includes('Samantha')));
+                if (vozIngles) utterance.voice = vozIngles;
+                setTimeout(() => speechSynthesis.speak(utterance), 30);
+            }
+
+            function hablarPalabra(palabra) { hablarTexto(palabra); }
+            function hablarFrase(frase) {
+                const fraseLimpia = frase.replace(/<[^>]*>/g, '');
+                hablarTexto(fraseLimpia);
+            }
+
+            function renderizarVerbos() {
+                const contenedor = document.getElementById('contenedorVerbos');
+                if (!contenedor) return;
+                while (contenedor.firstChild) contenedor.removeChild(contenedor.firstChild);
+
+                const filtrados = listaVerbosa.filter(v => 
+                    v.nombre.toLowerCase().includes(filtroActual.toLowerCase()) || 
+                    v.significado.toLowerCase().includes(filtroActual.toLowerCase())
+                );
+
+                const contadorSpan = document.getElementById('contadorVerbos');
+                if (contadorSpan) contadorSpan.textContent = `${filtrados.length} verbos`;
+
+                if (filtrados.length === 0) {
+                    const vacioDiv = document.createElement('div');
+                    vacioDiv.className = 'sin-resultados';
+                    vacioDiv.setAttribute('role', 'alert');
+                    vacioDiv.textContent = '📭 No se encontraron verbos. Prueba con otra búsqueda.';
+                    contenedor.appendChild(vacioDiv);
+                    return;
+                }
+
+                filtrados.forEach(verbo => {
+                    const tarjeta = document.createElement('article');
+                    tarjeta.className = `tarjeta-verbo tarjeta-verbo-${verbo.tipo}`;
+                    tarjeta.setAttribute('role', 'listitem');
+
+                    const cabecera = document.createElement('div');
+                    cabecera.className = 'cabecera-verbo';
+                    const nombreSpan = document.createElement('span');
+                    nombreSpan.className = 'nombre-verbo';
+                    nombreSpan.textContent = verbo.nombre;
+                    const significadoSpan = document.createElement('span');
+                    significadoSpan.className = 'significado-verbo';
+                    significadoSpan.textContent = verbo.significado;
+                    const botonAudio = document.createElement('button');
+                    botonAudio.className = 'boton-audio';
+                    botonAudio.setAttribute('aria-label', `Escuchar pronunciación de ${verbo.nombre}`);
+                    botonAudio.textContent = '🔊 Escuchar';
+                    botonAudio.addEventListener('click', (e) => {
+                        e.stopPropagation();
+                        hablarPalabra(verbo.nombre);
+                    });
+                    
+                    cabecera.appendChild(nombreSpan);
+                    cabecera.appendChild(significadoSpan);
+                    cabecera.appendChild(botonAudio);
+                    tarjeta.appendChild(cabecera);
+
+                    const tabla = document.createElement('table');
+                    tabla.className = 'tabla-conjugacion';
+                    const conjugaciones = [
+                        ['Present Simple', verbo.presenteSimple],
+                        ['Present Continuous', `am/is/are ${verbo.presenteCont}`],
+                        ['Present Perfect', `have/has ${verbo.participioPasado}`],
+                        ['Past Simple', verbo.pasadoSimple],
+                        ['Past Continuous', `was/were ${verbo.presenteCont}`],
+                        ['Past Perfect', `had ${verbo.participioPasado}`],
+                        ['Future Simple', verbo.futuroSimple],
+                        ['Future Perfect', verbo.futuroPerfecto]
+                    ];
+                    
+                    conjugaciones.forEach(([tiempo, valor]) => {
+                        const fila = document.createElement('tr');
+                        const celdaTiempo = document.createElement('td');
+                        celdaTiempo.className = 'etiqueta-tiempo';
+                        celdaTiempo.textContent = tiempo;
+                        const celdaValor = document.createElement('td');
+                        celdaValor.textContent = valor;
+                        fila.appendChild(celdaTiempo);
+                        fila.appendChild(celdaValor);
+                        tabla.appendChild(fila);
+                    });
+                    
+                    tarjeta.appendChild(tabla);
+                    contenedor.appendChild(tarjeta);
+                });
+            }
+
+            function crearTarjetaFrase(frase, indice, tipoClase, badgeClase, badgeTexto) {
+                const tarjeta = document.createElement('div');
+                tarjeta.className = `tarjeta-frase ${tipoClase}`;
+                tarjeta.setAttribute('role', 'listitem');
+                
+                const badge = document.createElement('span');
+                badge.className = `badge-pasado ${badgeClase}`;
+                badge.textContent = `${badgeTexto} #${indice + 1}`;
+                
+                const textoIngles = document.createElement('p');
+                textoIngles.className = 'texto-ingles';
+                textoIngles.innerHTML = frase.ingles;
+                
+                const pronunciacionSpan = document.createElement('div');
+                pronunciacionSpan.className = 'pronunciacion';
+                pronunciacionSpan.textContent = `🗣️ ${frase.pronunciacion}`;
+                
+                const textoEspanol = document.createElement('p');
+                textoEspanol.className = 'texto-espanol';
+                textoEspanol.textContent = frase.espanol;
+                
+                const botonAudioFrase = document.createElement('button');
+                botonAudioFrase.className = 'boton-audio-frase';
+                botonAudioFrase.setAttribute('aria-label', `Escuchar frase en inglés`);
+                botonAudioFrase.textContent = '🔊 Escuchar';
+                botonAudioFrase.addEventListener('click', () => hablarFrase(frase.ingles));
+                
+                tarjeta.appendChild(badge);
+                tarjeta.appendChild(textoIngles);
+                tarjeta.appendChild(pronunciacionSpan);
+                tarjeta.appendChild(textoEspanol);
+                tarjeta.appendChild(botonAudioFrase);
+                return tarjeta;
+            }
+
+            function renderizarFrases() {
+                const contenedor = document.getElementById('contenedorFrases');
+                if (!contenedor) return;
+                while (contenedor.firstChild) contenedor.removeChild(contenedor.firstChild);
+
+                listaFrasesAfirmativas.forEach((f, i) => contenedor.appendChild(crearTarjetaFrase(f, i, 'afirmativa', 'badge-afirmativo', '✅ Afirmativa')));
+                listaFrasesNegativas.forEach((f, i) => contenedor.appendChild(crearTarjetaFrase(f, i, 'negativa', 'badge-negativo', '❌ Negativa')));
+                listaFrasesInterrogativas.forEach((f, i) => contenedor.appendChild(crearTarjetaFrase(f, i, 'interrogativa', 'badge-interrogativo', '❓ Pregunta')));
+            }
+
+            function configurarFiltrosVerbos() {
+                const buscador = document.getElementById('buscadorVerbo');
+                if (buscador) {
+                    buscador.addEventListener('input', (e) => {
+                        filtroActual = e.target.value;
+                        renderizarVerbos();
+                    });
+                }
+                const controlVel = document.getElementById('controlVelocidad');
+                const mostrarVel = document.getElementById('mostrarVelocidad');
+                if (controlVel && mostrarVel) {
+                    controlVel.value = velocidadActual;
+                    mostrarVel.textContent = velocidadActual.toFixed(2) + 'x';
+                    controlVel.addEventListener('input', (e) => {
+                        velocidadActual = parseFloat(e.target.value);
+                        mostrarVel.textContent = velocidadActual.toFixed(2) + 'x';
+                    });
+                }
+            }
+
+            // Inicializar Módulo de Verbos
+            configurarFiltrosVerbos();
+            renderizarVerbos();
+            renderizarFrases();
+            if (window.speechSynthesis) {
+                speechSynthesis.getVoices();
+                speechSynthesis.onvoiceschanged = () => speechSynthesis.getVoices();
+            }
+        })();
+    </script>
+</body>
+</html>
