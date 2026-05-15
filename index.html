@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+<html lang="es" data-tema="claro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="description" content="GasServicios: Expertos en instalaciones, mantenimiento y reparación de gas. Servicio de urgencias 24/7 con más de 20 años de experiencia.">
+    <meta name="keywords" content="gas, instalaciones de gas, mantenimiento gas, urgencias gas, gas natural, empresa de gas">
+    <title>GasServicios | Inicio · Energía segura para tu hogar</title>
+    <style>
+        /* ---------- VARIABLES CSS GLOBALES ---------- */
+        :root {
+            /* Variables GasServicios - Modo Claro */
+            --fondo-cuerpo: #f8fafc;
+            --fondo-cabecera: #ffffff;
+            --fondo-pie: #0f172a;
+            --fondo-tarjeta: #ffffff;
+            --primario: #1e3a8a;
+            --primario-hover: #1e40af;
+            --acento: #f59e0b;
+            --acento-hover: #d97706;
+            --texto-principal: #0f172a;
+            --texto-secundario: #334155;
+            --texto-inverso: #f8fafc;
+            --borde-suave: #e2e8f0;
+            --sombra-media: 0 10px 25px -5px rgba(0,0,0,0.05), 0 8px 10px -6px rgba(0,0,0,0.02);
+            --radio-md: 1rem;
+            --radio-lg: 1.5rem;
+            --radio-full: 9999px;
+            --espaciado: clamp(1rem, 4vw, 2.5rem);
+            --ancho-maximo: 1280px;
+            --transicion: all 0.2s ease;
+            --footer-texto-principal: #f1f5f9;
+            --footer-texto-secundario: #cbd5e1;
+            --footer-enlace-hover: #fbbf24;
+            --footer-borde: #334155;
+        }
+
+        [data-tema="oscuro"] {
+            /* Variables GasServicios - Modo Oscuro */
+            --fondo-cuerpo: #0f172a;
+            --fondo-cabecera: #1e293b;
+            --fondo-pie: #020617;
+            --fondo-tarjeta: #1e293b;
+            --primario: #3b82f6;
+            --primario-hover: #60a5fa;
+            --acento: #fbbf24;
+            --acento-hover: #f59e0b;
+            --texto-principal: #f1f5f9;
+            --texto-secundario: #cbd5e1;
+            --texto-inverso: #0f172a;
+            --borde-suave: #334155;
+            --footer-texto-principal: #f8fafc;
+            --footer-texto-secundario: #e2e8f0;
+            --footer-enlace-hover: #fcd34d;
+            --footer-borde: #475569;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            background: var(--fondo-cuerpo);
+            color: var(--texto-principal);
+            font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+            line-height: 1.5;
+            overflow-x: hidden;
+            width: 100%;
+            transition: background var(--transicion), color var(--transicion);
+        }
+        .contenedor-web {
+            max-width: var(--ancho-maximo);
+            margin: 0 auto;
+            padding: 0 var(--espaciado);
+            width: 100%;
+        }
+
+        /* HEADER MODERNO */
+        .cabecera {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: var(--fondo-cabecera);
+            border-bottom: 1px solid var(--borde-suave);
+            transition: var(--transicion);
+        }
+        .cabecera-interna {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1.5rem;
+            padding: 0.9rem 0;
+            flex-wrap: wrap;
+        }
+        .logo-enlace {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            text-decoration: none;
+            border-radius: var(--radio-md);
+            padding: 0.25rem 0.5rem;
+            transition: var(--transicion);
+        }
+        .logo-icono {
+            width: 48px;
+            height: 48px;
+            background: linear-gradient(135deg, var(--primario), #0f766e);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+        .logo-icono svg { width: 28px; height: 28px; fill: white; }
+        .texto-logo h1 { font-size: 1.6rem; font-weight: 700; color: var(--texto-principal); line-height: 1.2; }
+        .texto-logo p { font-size: 0.8rem; color: var(--texto-secundario); font-weight: 500; }
+        
+        /* NAVEGACIÓN ESCRITORIO */
+        .nav-escritorio { display: flex; align-items: center; }
+        .lista-nav {
+            display: flex;
+            gap: 0.25rem;
+            list-style: none;
+            background: var(--borde-suave);
+            padding: 0.35rem;
+            border-radius: 3rem;
+        }
+        .enlace-nav {
+            display: inline-block;
+            padding: 0.6rem 1.25rem;
+            font-weight: 600;
+            font-size: 0.95rem;
+            color: var(--texto-principal);
+            text-decoration: none;
+            border-radius: 2rem;
+            transition: var(--transicion);
+        }
+        .enlace-nav:hover, .enlace-nav.activo {
+            background: var(--primario);
+            color: white;
+        }
+        .controles {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+        .boton-tema {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            background: transparent;
+            border: 2px solid var(--borde-suave);
+            border-radius: var(--radio-full);
+            font-weight: 500;
+            cursor: pointer;
+            color: var(--texto-principal);
+            transition: var(--transicion);
+        }
+        .boton-tema svg { width: 1.2rem; height: 1.2rem; fill: currentColor; }
+        .boton-hamburguesa {
+            display: none;
+            flex-direction: column;
+            gap: 6px;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            padding: 0.5rem;
+            border-radius: 0.75rem;
+        }
+        .linea-ham { width: 28px; height: 2.5px; background: var(--texto-principal); border-radius: 4px; transition: 0.2s; }
+        
+        /* MENÚ LATERAL MÓVIL */
+        .overlay-menu {
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.5);
+            backdrop-filter: blur(4px);
+            z-index: 1040;
+            visibility: hidden;
+            opacity: 0;
+            transition: 0.25s;
+        }
+        .overlay-menu.visible { visibility: visible; opacity: 1; }
+        .menu-lateral {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: min(85%, 320px);
+            height: 100vh;
+            background: var(--fondo-cabecera);
+            z-index: 1050;
+            padding: 5rem 1.5rem 2rem;
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            transition: right 0.3s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+            box-shadow: -5px 0 30px rgba(0,0,0,0.2);
+            border-left: 1px solid var(--borde-suave);
+        }
+        .menu-lateral.abierto { right: 0; }
+        .lista-menu-lateral { list-style: none; display: flex; flex-direction: column; gap: 0.5rem; }
+        .enlace-menu-movil {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            padding: 1rem 1.2rem;
+            border-radius: var(--radio-md);
+            font-weight: 600;
+            text-decoration: none;
+            color: var(--texto-principal);
+            transition: 0.2s;
+        }
+        .enlace-menu-movil.activo, .enlace-menu-movil:hover { background: var(--primario); color: white; }
+        .boton-cerrar {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: transparent;
+            border: none;
+            font-size: 1.8rem;
+            cursor: pointer;
+            color: var(--texto-principal);
+        }
+        
+        /* ESTILOS ESPECÍFICOS DEL INDEX */
+        main { padding: 2rem 0 3rem; }
+        
+        /* Hero Section */
+        .hero-inicio {
+            background: linear-gradient(135deg, var(--fondo-tarjeta) 0%, var(--fondo-cuerpo) 100%);
+            border-radius: var(--radio-lg);
+            padding: 4rem 2rem;
+            margin-bottom: 3rem;
+            border: 1px solid var(--borde-suave);
+            box-shadow: var(--sombra-media);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .hero-inicio::before {
+            content: '';
+            position: absolute;
+            top: -50%; right: -10%;
+            width: 400px; height: 400px;
+            background: radial-gradient(circle, rgba(59, 130, 246, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
+            z-index: 0;
+        }
+        .hero-contenido {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .hero-inicio h1 {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            color: var(--primario);
+            margin-bottom: 1.5rem;
+            line-height: 1.1;
+            font-weight: 800;
+        }
+        .hero-inicio p {
+            font-size: 1.2rem;
+            color: var(--texto-secundario);
+            margin-bottom: 2rem;
+        }
+        .hero-botones {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        .btn {
+            display: inline-block;
+            padding: 0.8rem 2rem;
+            border-radius: var(--radio-full);
+            font-weight: 700;
+            text-decoration: none;
+            transition: var(--transicion);
+            font-size: 1.1rem;
+            border: 2px solid transparent;
+        }
+        .btn-principal {
+            background: var(--primario);
+            color: white;
+        }
+        .btn-principal:hover {
+            background: var(--primario-hover);
+            transform: translateY(-2px);
+        }
+        .btn-secundario {
+            background: transparent;
+            color: var(--texto-principal);
+            border-color: var(--borde-suave);
+        }
+        .btn-secundario:hover {
+            border-color: var(--primario);
+            color: var(--primario);
+        }
+
+        /* Grid Servicios Home */
+        .seccion-titulo {
+            text-align: center;
+            margin-bottom: 2.5rem;
+        }
+        .seccion-titulo h2 {
+            font-size: 2.2rem;
+            color: var(--texto-principal);
+            margin-bottom: 0.5rem;
+        }
+        .seccion-titulo p {
+            color: var(--texto-secundario);
+            font-size: 1.1rem;
+        }
+
+        .grid-servicios {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+        .tarjeta-servicio {
+            background: var(--fondo-tarjeta);
+            border-radius: var(--radio-md);
+            padding: 2rem;
+            border: 1px solid var(--borde-suave);
+            transition: transform 0.3s, box-shadow 0.3s;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+        .tarjeta-servicio:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--sombra-media);
+            border-color: var(--acento);
+        }
+        .icono-servicio {
+            width: 60px;
+            height: 60px;
+            background: rgba(59, 130, 246, 0.1);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+        }
+        .tarjeta-servicio h3 {
+            font-size: 1.4rem;
+            color: var(--primario);
+            margin-bottom: 1rem;
+        }
+        .tarjeta-servicio p {
+            color: var(--texto-secundario);
+            margin-bottom: 1.5rem;
+            flex-grow: 1;
+        }
+        .enlace-flecha {
+            color: var(--acento);
+            font-weight: 700;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: gap 0.2s;
+        }
+        .tarjeta-servicio:hover .enlace-flecha { gap: 0.8rem; }
+
+        /* Sección Confianza CTA */
+        .cta-confianza {
+            background: var(--primario);
+            border-radius: var(--radio-lg);
+            padding: 3rem 2rem;
+            text-align: center;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+        .cta-confianza h2 { font-size: 2rem; margin-bottom: 1rem; color: white; }
+        .cta-confianza p { font-size: 1.1rem; opacity: 0.9; margin-bottom: 2rem; max-width: 600px; margin-left: auto; margin-right: auto; }
+        .btn-acento {
+            background: var(--acento);
+            color: #0f172a;
+        }
+        .btn-acento:hover {
+            background: var(--acento-hover);
+            transform: scale(1.05);
+        }
+
+        /* FOOTER */
+        .pie-pagina {
+            background: var(--fondo-pie);
+            color: var(--footer-texto-principal);
+            margin-top: 3rem;
+            padding: 2.5rem 0 1.5rem;
+            border-top: 3px solid var(--acento);
+        }
+        .footer-grid {
+            display: grid;
+            gap: 2rem 1.5rem;
+            grid-template-columns: 1fr;
+        }
+        @media (min-width: 48rem) { .footer-grid { grid-template-columns: repeat(2, 1fr); } }
+        @media (min-width: 80rem) { .footer-grid { grid-template-columns: repeat(6, 1fr); } }
+        .bloque-footer h4 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--footer-texto-principal);
+            position: relative;
+            display: inline-block;
+        }
+        .bloque-footer h4::after { content: ''; position: absolute; bottom: -6px; left: 0; width: 35px; height: 2px; background: var(--acento); border-radius: 2px; }
+        .bloque-footer a {
+            display: block;
+            color: var(--footer-texto-secundario);
+            text-decoration: none;
+            margin-bottom: 0.5rem;
+            font-size: 0.85rem;
+            transition: color 0.2s, transform 0.2s;
+        }
+        .bloque-footer a:hover { color: var(--footer-enlace-hover); transform: translateX(3px); }
+        .contacto-item { display: flex; align-items: center; gap: 0.6rem; margin-bottom: 0.7rem; color: var(--footer-texto-secundario); font-size: 0.85rem; }
+        .contacto-item svg { width: 1rem; height: 1rem; fill: var(--acento); }
+        .social-icons { display: flex; gap: 0.7rem; margin-top: 0.8rem; }
+        .social-icons a { display: flex; align-items: center; justify-content: center; width: 2.2rem; height: 2.2rem; background: rgba(255,255,255,0.12); border-radius: 50%; font-size: 1rem; transition: all 0.2s; }
+        .social-icons a:hover { background: var(--acento); transform: translateY(-3px); color: #0f172a; }
+        
+        .seccion-newsletter { margin-top: 2.5rem; padding-top: 2rem; border-top: 1px solid var(--footer-borde); text-align: center; }
+        .contenedor-newsletter { max-width: 600px; margin: 0 auto; padding: 0 var(--espaciado); }
+        .titulo-newsletter { font-size: 1.3rem; font-weight: 700; color: var(--footer-texto-principal); margin-bottom: 0.5rem; }
+        .descripcion-newsletter { color: var(--footer-texto-secundario); font-size: 0.9rem; margin-bottom: 1.2rem; }
+        .formulario-newsletter { display: flex; flex-direction: column; gap: 0.8rem; max-width: 450px; margin: 0 auto; }
+        @media (min-width: 40rem) { .formulario-newsletter { flex-direction: row; } }
+        .formulario-newsletter input { flex: 1; padding: 0.75rem 1.2rem; border-radius: var(--radio-full); border: 2px solid var(--footer-borde); background: var(--fondo-cabecera); color: var(--texto-principal); font-size: 0.95rem; }
+        .formulario-newsletter button { background: var(--acento); border: none; padding: 0.75rem 1.8rem; border-radius: var(--radio-full); font-weight: 700; cursor: pointer; color: #0f172a; transition: 0.2s; }
+        
+        .copyright { text-align: center; border-top: 1px solid var(--footer-borde); padding-top: 1.5rem; font-size: 0.8rem; color: var(--footer-texto-secundario); margin-top: 2rem; }
+        .solo-lectura { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; }
+
+        /* RESPONSIVE */
+        @media (max-width: 880px) {
+            .nav-escritorio { display: none; }
+            .boton-hamburguesa { display: flex; }
+        }
+        @media (max-width: 640px) {
+            .contenedor-web { padding: 0 1.2rem; }
+            .hero-inicio { padding: 3rem 1.5rem; }
+        }
+    </style>
+</head>
+<body>
+    <div class="contenedor-web">
+        <header class="cabecera">
+            <div class="cabecera-interna">
+                <a href="index.html" class="logo-enlace" id="logo-principal">
+                    <div class="logo-icono" aria-hidden="true">
+                        <svg viewBox="0 0 24 24"><path d="M12 2C8.5 2 6 4.5 6 8c0 2.5 1.5 4.5 3 6.5 1 1.5 2 3 2 5.5 0-2.5 1-4 2-5.5 1.5-2 3-4 3-6.5 0-3.5-2.5-6-6-6z"/><circle cx="12" cy="8" r="2"/></svg>
+                    </div>
+                    <div class="texto-logo"><h1>GasServicios</h1><p>energía segura · 24h</p></div>
+                </a>
+                
+                <div class="nav-escritorio">
+                    <ul class="lista-nav">
+                        <li><a href="index.html" class="enlace-nav activo">Inicio</a></li>
+                        <li><a href="nosotros.html" class="enlace-nav">Nosotros</a></li>
+                        <li><a href="servicios.html" class="enlace-nav">Servicios</a></li>
+                        <li><a href="portfolio.html" class="enlace-nav">Portfolio</a></li>
+                        <li><a href="blog.html" class="enlace-nav">Blog</a></li>
+                        <li><a href="contacto.html" class="enlace-nav">Contacto</a></li>
+                    </ul>
+                </div>
+                
+                <div class="controles">
+                    <button class="boton-tema" id="botonTema" aria-label="Modo oscuro/claro">
+                        <svg class="icono-luna" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
+                        <svg class="icono-sol" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+                        <span id="textoTema">Modo Claro</span>
+                    </button>
+                    <button class="boton-hamburguesa" id="btnHamburguesa" aria-label="Menú">
+                        <span class="linea-ham"></span><span class="linea-ham"></span><span class="linea-ham"></span>
+                    </button>
+                </div>
+            </div>
+        </header>
+
+        <div class="overlay-menu" id="overlayMenu"></div>
+        <div class="menu-lateral" id="menuLateral">
+            <button class="boton-cerrar" id="cerrarMenuBtn" aria-label="Cerrar menú">✕</button>
+            <ul class="lista-menu-lateral">
+                <li><a href="index.html" class="enlace-menu-movil activo">🏠 Inicio</a></li>
+                <li><a href="nosotros.html" class="enlace-menu-movil">👥 Nosotros</a></li>
+                <li><a href="servicios.html" class="enlace-menu-movil">🔧 Servicios</a></li>
+                <li><a href="portfolio.html" class="enlace-menu-movil">📁 Portfolio</a></li>
+                <li><a href="blog.html" class="enlace-menu-movil">📰 Blog</a></li>
+                <li><a href="contacto.html" class="enlace-menu-movil">📞 Contacto</a></li>
+            </ul>
+        </div>
+
+        <main>
+            <section class="hero-inicio">
+                <div class="hero-contenido">
+                    <h1>Sistemas de gas confiables para tu hogar y negocio</h1>
+                    <p>Más de 20 años de experiencia brindando soluciones de instalación, mantenimiento y urgencias 24/7 con los más altos estándares de calidad y seguridad certificada.</p>
+                    <div class="hero-botones">
+                        <a href="servicios.html" class="btn btn-principal">Conoce nuestros servicios</a>
+                        <a href="contacto.html" class="btn btn-secundario">Solicitar presupuesto</a>
+                    </div>
+                </div>
+            </section>
+
+            <section class="seccion-servicios">
+                <div class="seccion-titulo">
+                    <h2>Nuestras Especialidades</h2>
+                    <p>Cubrimos todas tus necesidades de gas con técnicos homologados.</p>
+                </div>
+                
+                <div class="grid-servicios">
+                    <div class="tarjeta-servicio">
+                        <div class="icono-servicio">🔧</div>
+                        <h3>Instalaciones Nuevas</h3>
+                        <p>Diseño, ejecución y legalización de instalaciones de gas natural, butano y propano para viviendas, comunidades y comercios.</p>
+                        <a href="servicios.html" class="enlace-flecha">Ver detalles <span>→</span></a>
+                    </div>
+                    <div class="tarjeta-servicio">
+                        <div class="icono-servicio">📋</div>
+                        <h3>Revisión y Mantenimiento</h3>
+                        <p>Inspecciones periódicas obligatorias, emisión de boletines y mantenimiento preventivo para asegurar el rendimiento óptimo de tus equipos.</p>
+                        <a href="servicios.html" class="enlace-flecha">Saber más <span>→</span></a>
+                    </div>
+                    <div class="tarjeta-servicio">
+                        <div class="icono-servicio">🚨</div>
+                        <h3>Urgencias 24h</h3>
+                        <p>Reparación inmediata de fugas, averías en calderas y cortes de suministro. Atención rápida todos los días del año.</p>
+                        <a href="contacto.html" class="enlace-flecha">Llamar ahora <span>→</span></a>
+                    </div>
+                </div>
+            </section>
+
+            <section class="cta-confianza">
+                <h2>¿Necesitas un instalador autorizado?</h2>
+                <p>Nuestros técnicos están certificados y listos para atender tu solicitud garantizando limpieza, rapidez y total seguridad.</p>
+                <a href="contacto.html" class="btn btn-acento">Contactar con un experto</a>
+            </section>
+        </main>
+    </div>
+
+    <footer class="pie-pagina">
+        <div class="contenedor-web">
+            <div class="footer-grid">
+                <div class="bloque-footer">
+                    <h4>GasServicios</h4>
+                    <p style="margin-bottom: 0.6rem; color: var(--footer-texto-secundario);">Seguridad energética con excelencia. +20 años garantizando tranquilidad.</p>
+                    <div class="social-icons">
+                        <a href="#" aria-label="Facebook">📘</a>
+                        <a href="#" aria-label="Twitter">🐦</a>
+                        <a href="#" aria-label="Instagram">📸</a>
+                        <a href="#" aria-label="LinkedIn">🔗</a>
+                    </div>
+                </div>
+                <div class="bloque-footer">
+                    <h4>Enlaces</h4>
+                    <a href="index.html">Inicio</a>
+                    <a href="nosotros.html">Nosotros</a>
+                    <a href="servicios.html">Servicios</a>
+                    <a href="portfolio.html">Portfolio</a>
+                    <a href="blog.html">Blog</a>
+                    <a href="contacto.html">Contacto</a>
+                </div>
+                <div class="bloque-footer">
+                    <h4>Servicios</h4>
+                    <a href="servicios.html">Instalaciones de gas</a>
+                    <a href="servicios.html">Mantenimiento preventivo</a>
+                    <a href="servicios.html">Certificaciones oficiales</a>
+                    <a href="servicios.html">Emergencias 24/7</a>
+                </div>
+                <div class="bloque-footer">
+                    <h4>Contacto</h4>
+                    <div class="contacto-item"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg><span>+34 900 123 456</span></div>
+                    <div class="contacto-item"><svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22 6 12 13 2 6"/></svg><span>info@gasservicios.es</span></div>
+                </div>
+                <div class="bloque-footer">
+                    <h4>Legal</h4>
+                    <a href="#">Política de Privacidad</a>
+                    <a href="#">Política de Cookies</a>
+                    <a href="#">Aviso Legal</a>
+                    <a href="#">Declaración de Accesibilidad</a>
+                </div>
+                <div class="bloque-footer">
+                    <h4>Información</h4>
+                    <a href="#">Preguntas frecuentes</a>
+                    <a href="#">Trabaja con nosotros</a>
+                    <a href="#">Mapa del sitio</a>
+                </div>
+            </div>
+
+            <section class="seccion-newsletter">
+                <div class="contenedor-newsletter">
+                    <h3 class="titulo-newsletter">Suscríbete a nuestro boletín</h3>
+                    <p class="descripcion-newsletter">Recibe consejos de seguridad y novedades del sector.</p>
+                    <form id="footerNewsletterForm" class="formulario-newsletter">
+                        <label for="newsEmail" class="solo-lectura">Correo electrónico</label>
+                        <input type="email" id="newsEmail" placeholder="tu@email.com" required>
+                        <button type="submit">Suscribirme</button>
+                    </form>
+                </div>
+            </section>
+
+            <div class="copyright">
+                <p>&copy; <span id="year"></span> GasServicios · Todos los derechos reservados · Instalador autorizado</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        (function() {
+            // Lógica Global de la Web
+            const botonTema = document.getElementById('botonTema');
+            const textoTema = document.getElementById('textoTema');
+            const btnHamburguesa = document.getElementById('btnHamburguesa');
+            const menuLateral = document.getElementById('menuLateral');
+            const overlayMenu = document.getElementById('overlayMenu');
+            const cerrarBtn = document.getElementById('cerrarMenuBtn');
+            const footerForm = document.getElementById('footerNewsletterForm');
+            
+            function cerrarMenuLateral() {
+                if(menuLateral && overlayMenu && btnHamburguesa) {
+                    menuLateral.classList.remove('abierto');
+                    overlayMenu.classList.remove('visible');
+                    document.body.style.overflow = '';
+                    btnHamburguesa.setAttribute('aria-expanded', 'false');
+                }
+            }
+            
+            function abrirMenu() {
+                menuLateral.classList.add('abierto');
+                overlayMenu.classList.add('visible');
+                document.body.style.overflow = 'hidden';
+                btnHamburguesa.setAttribute('aria-expanded', 'true');
+            }
+            
+            if(btnHamburguesa) btnHamburguesa.addEventListener('click', abrirMenu);
+            if(cerrarBtn) cerrarBtn.addEventListener('click', cerrarMenuLateral);
+            if(overlayMenu) overlayMenu.addEventListener('click', cerrarMenuLateral);
+            
+            function setTema(tema) {
+                document.documentElement.setAttribute('data-tema', tema);
+                if(textoTema) textoTema.textContent = tema === 'claro' ? 'Modo Claro' : 'Modo Oscuro';
+                localStorage.setItem('gas-tema', tema);
+            }
+            
+            function toggleTema() {
+                const actual = document.documentElement.getAttribute('data-tema');
+                setTema(actual === 'claro' ? 'oscuro' : 'claro');
+            }
+            
+            if(botonTema) botonTema.addEventListener('click', toggleTema);
+            
+            const temaGuardado = localStorage.getItem('gas-tema');
+            if(temaGuardado && (temaGuardado === 'claro' || temaGuardado === 'oscuro')) {
+                setTema(temaGuardado);
+            } else if(window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                setTema('oscuro');
+            } else {
+                setTema('claro');
+            }
+            
+            if(document.getElementById('year')) {
+                document.getElementById('year').textContent = new Date().getFullYear();
+            }
+            
+            if(footerForm) {
+                footerForm.addEventListener('submit', (e) => {
+                    e.preventDefault();
+                    const input = document.getElementById('newsEmail');
+                    if(input.value.trim() && input.value.includes('@')) {
+                        alert(`✅ Suscripción exitosa: ${input.value}`);
+                        input.value = '';
+                    } else {
+                        alert('Por favor, introduce un correo válido.');
+                    }
+                });
+            }
+        })();
+    </script>
+</body>
+</html>
